@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Committee name:</b>
+  <%= @committee.committee_name %>
+</p>
+
+<p>
+  <b>Num delegates:</b>
+  <%= @committee.num_delegates %>
+</p>
+
+<p>
+  <b>Conference:</b>
+  <%= @committee.conference.conference_title %>
+</p>
+
+
+<%= link_to 'Edit', edit_committee_path(@committee) %> |
+<%= link_to 'Back', committees_path %>

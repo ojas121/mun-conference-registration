@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  conference_title: MyString
+  start_date: 2012-11-02
+  end_date: 2012-11-02
+  host: MyString
+  venue: MyString
+  conference_details: MyText
+
+two:
+  conference_title: MyString
+  start_date: 2012-11-02
+  end_date: 2012-11-02
+  host: MyString
+  venue: MyString
+  conference_details: MyText

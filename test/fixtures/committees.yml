@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  committee_name: MyString
+  num_delegates: 1
+  conference_id: 1
+
+two:
+  committee_name: MyString
+  num_delegates: 1
+  conference_id: 1
