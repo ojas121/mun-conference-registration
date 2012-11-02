@@ -1,0 +1,8 @@
+<p>
+	<b><%= pluralize(@school.delegates.size, 'Delegate') %></b><br />
+	<ul>
+		<% for delegate in @school.delegates %>
+			<li><%= link_to((delegate.first_name), delegate_path(delegate)) %></li>
+		<% end  %>
+	</ul>
+</p>

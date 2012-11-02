@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  school_name: MyString
+  school_address: MyString
+  max_students: 1
+
+two:
+  school_name: MyString
+  school_address: MyString
+  max_students: 1

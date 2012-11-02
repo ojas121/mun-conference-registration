@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>First name:</b>
+  <%= @delegate.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @delegate.last_name %>
+</p>
+
+<p>
+  <b>Gender:</b>
+  <%= @delegate.gender %>
+</p>
+
+<p>
+  <b>Date of birth:</b>
+  <%= @delegate.date_of_birth %>
+</p>
+
+<p>
+  <b>Nationality:</b>
+  <%= @delegate.nationality %>
+</p>
+
+<p>
+  <b>School:</b>
+  <%= @delegate.school_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_delegate_path(@delegate) %> |
+<%= link_to 'Back', delegates_path %>

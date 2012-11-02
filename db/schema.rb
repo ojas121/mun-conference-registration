@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121102101611) do
+ActiveRecord::Schema.define(:version => 20121102165737) do
+
+  create_table "assignments", :force => true do |t|
+    t.integer  "committee_id"
+    t.integer  "school_id"
+    t.integer  "country_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "committees", :force => true do |t|
     t.string   "committee_name"
@@ -30,6 +38,25 @@ ActiveRecord::Schema.define(:version => 20121102101611) do
     t.text     "conference_details"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+  end
+
+  create_table "delegates", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "gender"
+    t.date     "date_of_birth"
+    t.string   "nationality"
+    t.integer  "school_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  create_table "schools", :force => true do |t|
+    t.string   "school_name"
+    t.string   "school_address"
+    t.integer  "max_students"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
 end

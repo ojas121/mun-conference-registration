@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>School name:</b>
+  <%= @school.school_name %>
+</p>
+
+<p>
+  <b>School address:</b>
+  <%= @school.school_address %>
+</p>
+
+<p>
+  <b>Max students:</b>
+  <%= @school.max_students %>
+</p>
+
+<p>
+<%= render :partial => 'list_of_delegates' %>
+<%= link_to 'Create Delegate', new_delegate_path(@delegate) %>
+</p>
+
+
+<%= link_to 'Edit', edit_school_path(@school) %> |
+<%= link_to 'Back', schools_path %>
