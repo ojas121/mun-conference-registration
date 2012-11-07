@@ -1,4 +1,6 @@
 I3s::Application.routes.draw do
+
+  resources :assignments
   resources :delegates
 
   resources :schools
