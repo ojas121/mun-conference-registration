@@ -1,5 +1,7 @@
 I3s::Application.routes.draw do
 
+  resources :countries
+
   devise_for :users
 
   resources :assignments
