@@ -1,0 +1,8 @@
+<p>
+	<b><%= pluralize(@list.countries.size, 'Country') %></b><br />
+	<ul>
+		<% for country in @list.countries %>
+			<li><%= link_to((country.country_name), country_path(country)) %></li>
+		<% end  %>
+	</ul>
+</p>

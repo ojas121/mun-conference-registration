@@ -11,9 +11,17 @@
 </p>
 
 <p>
+  <b>List:</b>
+  <% for country in @committee.list.countries %>
+    <li><%= link_to((country.country_name), country_path(country)) %></li>
+  <% end  %>
+</p>
+
+<p>
   <b>Conference:</b>
   <%= @committee.conference.conference_title %>
 </p>
+
 
 
 <%= link_to 'Edit', edit_committee_path(@committee) %> |

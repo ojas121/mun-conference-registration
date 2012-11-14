@@ -20,6 +20,10 @@
     <%= f.number_field :num_delegates %>
   </div>
   <div class="field">
+    <%= f.label :list_id %><br />
+    <%= f.collection_select :list_id, List.all, :id, :list_name %>
+  </div>
+  <div class="field">
     <%= f.label :conference_id %><br />
     <%= f.collection_select :conference_id, Conference.all, :id, :conference_title %>
   </div>

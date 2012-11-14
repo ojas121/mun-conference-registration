@@ -15,6 +15,10 @@
     <%= f.label :list_name %><br />
     <%= f.text_field :list_name %>
   </div>
+  <div class="field">
+    <%= f.label :countries %><br />
+    <%= render :partial => 'countries_checkboxes' %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -5,6 +5,7 @@
   <%= @list.list_name %>
 </p>
 
+<%= render :partial => 'list_of_countries' %>
 
 <%= link_to 'Edit', edit_list_path(@list) %> |
 <%= link_to 'Back', lists_path %>
