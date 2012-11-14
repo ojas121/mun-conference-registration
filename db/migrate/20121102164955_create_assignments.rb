@@ -4,6 +4,7 @@ class CreateAssignments < ActiveRecord::Migration
       t.integer :committee_id
       t.integer :school_id
       t.integer :country_id
+      t.integer :conference_id
 
       t.timestamps
     end
