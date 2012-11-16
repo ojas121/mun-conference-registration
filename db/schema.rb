@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121114145010) do
+ActiveRecord::Schema.define(:version => 20121114192907) do
+
+  create_table "committee_schools", :force => true do |t|
+    t.integer  "committee_id"
+    t.integer  "school_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
 
   create_table "committees", :force => true do |t|
     t.string   "committee_name"
@@ -40,6 +47,13 @@ ActiveRecord::Schema.define(:version => 20121114145010) do
   create_table "country_lists", :force => true do |t|
     t.integer  "country_id"
     t.integer  "list_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "country_schools", :force => true do |t|
+    t.integer  "country_id"
+    t.integer  "school_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

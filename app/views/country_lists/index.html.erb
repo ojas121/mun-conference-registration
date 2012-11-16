@@ -11,8 +11,8 @@
 
 <% @country_lists.each do |country_list| %>
   <tr>
-    <td><%= country_list.country_id %></td>
-    <td><%= country_list.list_id %></td>
+    <td><%= country_list.country.country_name %></td>
+    <td><%= country_list.list.list_name %></td>
     <td><%= link_to 'Show', country_list %></td>
     <td><%= link_to 'Edit', edit_country_list_path(country_list) %></td>
     <td><%= link_to 'Destroy', country_list, confirm: 'Are you sure?', method: :delete %></td>

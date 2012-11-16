@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Country:</b>
+  <%= @country_school.country.country_name %>
+</p>
+
+<p>
+  <b>School:</b>
+  <%= @country_school.school.school_name %>
+</p>
+
+
+<%= link_to 'Edit', edit_country_school_path(@country_school) %> |
+<%= link_to 'Back', country_schools_path %>

@@ -1,5 +1,9 @@
 I3s::Application.routes.draw do
 
+  resources :committee_schools
+
+  resources :country_schools
+
   resources :country_lists
 
   resources :lists
@@ -66,7 +70,7 @@ I3s::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+    root :to => 'conferences#index'
 
   # See how all your routes lay out with "rake routes"
 

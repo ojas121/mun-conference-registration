@@ -1,0 +1,2 @@
+module CommitteeSchoolsHelper
+end

@@ -1,0 +1,25 @@
+<h1>Listing committee_schools</h1>
+
+<table>
+  <tr>
+    <th>Committee</th>
+    <th>School</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @committee_schools.each do |committee_school| %>
+  <tr>
+    <td><%= committee_school.committee_id %></td>
+    <td><%= committee_school.school_id %></td>
+    <td><%= link_to 'Show', committee_school %></td>
+    <td><%= link_to 'Edit', edit_committee_school_path(committee_school) %></td>
+    <td><%= link_to 'Destroy', committee_school, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Committee school', new_committee_school_path %>

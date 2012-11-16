@@ -1,0 +1,2 @@
+module CountrySchoolsHelper
+end
