@@ -13,28 +13,28 @@
       <legend>Change Password</legend>
 
       <div class="control-group">
-        <label><%= f.label :email, :class => "control-label" %></label>
+        <%= f.label :email, :class => "control-label" %>
         <div class="controls">
           <%= f.email_field :email %>
         </div>
       </div>
 
       <div class="control-group">
-        <label><%= f.label :current_password, :class => "control-label" %></label>
+        <%= f.label :current_password, :class => "control-label" %>
         <div class="controls">
           <%= f.password_field :current_password %>
         </div>
       </div>
 
       <div class="control-group">
-        <label><%= f.label :new_password, :class => "control-label" %></label>
+        <%= f.label :new_password, :class => "control-label" %>
         <div class="controls">
           <%= f.password_field :password, :autocomplete => "off" %>
         </div>
       </div>
 
       <div class="control-group">
-        <label><%= f.label :confirm_new_password, :class => "control-label" %></label>
+        <%= f.label :confirm_new_password, :class => "control-label" %>
         <div class="controls">
           <%= f.password_field :password_confirmation %>
         </div>
@@ -43,7 +43,7 @@
       <div class="control-group">
         <div class="controls">
           <%= f.submit "Change Password", :class => "btn btn-primary"%>
-          <%= link_to "Cancel", :back, :class => "btn" %>
+          <%= link_to "Cancel", root_path, :class => "btn" %>
         </div>
       </div>
 

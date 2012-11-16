@@ -1,25 +1,35 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>THIMUN Qatar Online Registration</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <div class="container">
-
-<div id="user_nav">
-  <% if user_signed_in? %>
-    Signed in as <%= link_to(current_user.email, edit_user_registration_path) %>. Not you?
-    <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>
-  <% else %>
-    <%= link_to('Sign up', new_user_registration_path) %> or
-    <%= link_to('Login', new_user_session_path)  %>
-  <% end %>
-</div>
-
-<%= yield %>
-  </div>
-</body>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "THIMUN Qatar Online Registration System" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "THIMUN Qatar Online Registration System" %>">
+    <%= stylesheet_link_tag "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= yield(:head) %>
+  </head>
+  <body>
+    <header class="navbar navbar-fixed-top">
+      <nav class="navbar-inner">
+        <div class="container">
+          <%= render 'layouts/navigation' %>
+        </div>
+      </nav>
+    </header>
+    <div id="main" role="main">
+      <div class="container">
+        <div class="content">
+           <div class="row">
+            <div class="span12">
+              <%= render 'layouts/messages' %>
+              <%= yield %>
+            </div>
+          </div>
+          <footer>
+          </footer>
+        </div>
+      </div> <!--! end of .container -->
+    </div> <!--! end of #main -->
+  </body>
 </html>

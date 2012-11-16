@@ -13,7 +13,7 @@
 			<legend>Reset Password</legend>
 
 			<div class="control-group">
-				<label><%= f.label :email, :class => "control-label" %></label>
+				<%= f.label :email, :class => "control-label" %>
 				<div class="controls">
 					<%= f.email_field :email %>
 					<p class="help-block">Enter your email address and we'll send you instructions.</p>
@@ -23,7 +23,7 @@
 			<div class="control-group">
 				<div class="controls">
 					<%= f.submit "Submit", :class => "btn btn-primary"%>
-					<button type="reset" class="btn">Cancel</button>
+					<%= link_to "Cancel", root_path, :class => "btn" %>
 				</div>
 			</div>
 
