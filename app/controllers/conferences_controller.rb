@@ -1,4 +1,5 @@
 class ConferencesController < ApplicationController
+  filter_resource_access
   # GET /conferences
   # GET /conferences.json
   def index
@@ -13,7 +14,6 @@ class ConferencesController < ApplicationController
   # GET /conferences/1
   # GET /conferences/1.json
   def show
-    @conference = Conference.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +24,6 @@ class ConferencesController < ApplicationController
   # GET /conferences/new
   # GET /conferences/new.json
   def new
-    @conference = Conference.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +33,11 @@ class ConferencesController < ApplicationController
 
   # GET /conferences/1/edit
   def edit
-    @conference = Conference.find(params[:id])
   end
 
   # POST /conferences
   # POST /conferences.json
   def create
-    @conference = Conference.new(params[:conference])
 
     respond_to do |format|
       if @conference.save
@@ -56,7 +53,6 @@ class ConferencesController < ApplicationController
   # PUT /conferences/1
   # PUT /conferences/1.json
   def update
-    @conference = Conference.find(params[:id])
 
     respond_to do |format|
       if @conference.update_attributes(params[:conference])
@@ -72,7 +68,6 @@ class ConferencesController < ApplicationController
   # DELETE /conferences/1
   # DELETE /conferences/1.json
   def destroy
-    @conference = Conference.find(params[:id])
     @conference.destroy
 
     respond_to do |format|

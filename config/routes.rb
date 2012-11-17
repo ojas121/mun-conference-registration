@@ -1,5 +1,9 @@
 I3s::Application.routes.draw do
 
+  resources :user_roles
+
+  resources :roles
+
   resources :committee_schools
 
   resources :country_schools
