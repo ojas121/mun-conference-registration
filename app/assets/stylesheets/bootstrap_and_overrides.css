@@ -6,3 +6,11 @@ body {
 .row {
 	background: #ffffff;
 }
+
+h1, h2, h3 {
+	color: #8c2050;
+}
+
+h4, h5, h6 {
+	color: #39b1c6;
+}

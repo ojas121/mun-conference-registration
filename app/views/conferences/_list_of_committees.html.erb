@@ -1,8 +1,6 @@
-<p>
-	<b><%= pluralize(@conference.committees.size, 'Committee') %></b><br />
-	<ul>
-		<% for committee in @conference.committees %>
-			<li><%= link_to((committee.committee_name), committee_path(committee)) %></li>
-		<% end  %>
-	</ul>
-</p>
+<% if @conference.committees.size == 0 %>No committees created for this conference yet.<% end %>
+<ul>
+	<% for committee in @conference.committees %>
+		<li><%= link_to((committee.committee_name), committee_path(committee)) %></li>
+	<% end  %>
+</ul>

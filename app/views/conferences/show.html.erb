@@ -1,40 +1,38 @@
-<p id="notice"><%= notice %></p>
+<!-- Conference
+================================================== -->
+<section id="conference">
+  <div class="page-header">
+    <div class="row-fluid">
+        <h1><%= @conference.conference_title %></h1>
+        <h3 style="color: #39b1c6;"><%= @conference.start_date.strftime('%B %e, %Y') %> - <%= @conference.end_date.strftime('%B %e, %Y') %></h3>
+        <p>Hosted by <%= @conference.host %></p>
+        <p><%= @conference.conference_details %></p>
+        <p class="well">
+          <%= link_to image_tag('edit.png'), edit_conference_path(@conference) %>&nbsp;&nbsp;<%= link_to 'Edit Conference', edit_conference_path(@conference) %>
 
-<p>
-  <b>Conference title:</b>
-  <%= @conference.conference_title %>
-</p>
+          &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
 
-<p>
-  <b>Start date:</b>
-  <%= @conference.start_date %>
-</p>
+          <%= link_to image_tag('trash.png'), @conference, confirm: 'Are you sure you want to delete this conference? This cannot be undone.', method: :delete %>&nbsp;&nbsp;<%= link_to 'Delete Conference', @conference, confirm: 'Are you sure you want to delete this conference? This cannot be undone.', method: :delete %>
+        </p>
+    </div>
+  </div>
 
-<p>
-  <b>End date:</b>
-  <%= @conference.end_date %>
-</p>
+  <div class="row-fluid">
+    <div class="span6 well">
+      <h3>Committees</h3>
+      <p>
+        <%= render :partial => 'list_of_committees' %>
+        <%= link_to 'Create Committee', new_committee_path(@committee) %>
+      </p>
+    </div>
 
-<p>
-  <b>Host:</b>
-  <%= @conference.host %>
-</p>
-
-<p>
-  <b>Venue:</b>
-  <%= @conference.venue %>
-</p>
-<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@conference.latitude}%2C#{@conference.longitude}" %>
-<p>
-  <b>Conference details:</b>
-  <%= @conference.conference_details %>
-</p>
-
-<p>
-<%= render :partial => 'list_of_committees' %>
-<%= link_to 'Create Committee', new_committee_path(@committee) %>
-</p>
-
+    <div class="span6 well">
+      <h3>Venue</h3>
+      <p><%= @conference.venue %></p>
+      <p><%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@conference.latitude}%2C#{@conference.longitude}" %></p>
+    </div>
+  </div>
+</section>
 
 <%= link_to 'Edit', edit_conference_path(@conference) %> |
 <%= link_to 'Back', conferences_path %>
