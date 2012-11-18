@@ -6,9 +6,10 @@ gem 'rails', '3.2.1'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'rake', '10.0.0'
+gem 'rake', '10.0.1'
 gem 'devise'
 gem 'declarative_authorization'
+gem 'geocoder'
 
 # Gems used only for assets and not required
 # in production environments by default.
