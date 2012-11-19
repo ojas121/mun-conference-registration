@@ -1,9 +1,18 @@
 class CreateRoles < ActiveRecord::Migration
-  def change
-    create_table :roles do |t|
-      t.string :name
+	def self.up
+		create_table :roles do |t|
+			t.column :name, :string
+		end
 
-      t.timestamps
-    end
-  end
-end
+		Role.reset_column_information
+
+		Role.create( :name => 'System Admin' )
+		Role.create( :name => 'Conference Manager' )
+		Role.create( :name => 'MUN Director' )
+
+	end
+
+	def self.down
+		drop_table :roles
+	end
+ end
