@@ -17,6 +17,7 @@ I3s::Application.routes.draw do
   devise_for :users
 
   resources :assignments
+  
   resources :delegates
 
   resources :schools
