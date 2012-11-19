@@ -1,4 +1,5 @@
 class DelegatesController < ApplicationController
+  filter_resource_access
   # GET /delegates
   # GET /delegates.json
   def index

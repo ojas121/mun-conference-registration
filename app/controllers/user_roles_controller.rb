@@ -1,4 +1,5 @@
 class UserRolesController < ApplicationController
+  filter_resource_access
   # GET /user_roles
   # GET /user_roles.json
   def index

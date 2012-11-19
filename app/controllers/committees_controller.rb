@@ -1,4 +1,5 @@
 class CommitteesController < ApplicationController
+  filter_resource_access
   # GET /committees
   # GET /committees.json
   def index

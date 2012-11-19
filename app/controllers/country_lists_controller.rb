@@ -1,4 +1,5 @@
 class CountryListsController < ApplicationController
+  filter_resource_access
   # GET /country_lists
   # GET /country_lists.json
   def index
