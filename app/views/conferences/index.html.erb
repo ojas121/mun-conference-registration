@@ -32,6 +32,14 @@
 </tbody>
 </table>
 
-<br />
+<br/><br/><br/><br/>
+<%= form_for @search, :url => conferences_path, :html => {:method => :get} do |f| %>
+  <%= f.label :Search_by_conference_title %>
+  <%= f.text_field :conference_title_contains %><br />
+
+  <%= f.submit "Search for conferences"%>
+
+<br/><br/>
 
 <%= link_to 'New Conference', new_conference_path %>
+<% end %>

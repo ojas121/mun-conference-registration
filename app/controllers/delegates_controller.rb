@@ -8,6 +8,11 @@ class DelegatesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @delegates }
+	  
+	   	@search = Delegate.search(params[:search])
+        @delegates = @search.all   # load all matching records
+      
+	  
     end
   end
 

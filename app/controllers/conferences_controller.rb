@@ -8,6 +8,11 @@ class ConferencesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @conferences }
+      
+       	@search = Conference.search(params[:search])
+        @conferences = @search.all   # load all matching records
+      
+      
     end
   end
 

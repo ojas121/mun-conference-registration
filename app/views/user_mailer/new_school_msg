@@ -1,0 +1,6 @@
+Dear <%= @school.school_name %>,
+
+Your school has been accepted to participate in the conference. 
+Soon, your school's MUN Director will be notified via email. 
+
+Thank you! 

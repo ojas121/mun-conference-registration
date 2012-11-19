@@ -4,6 +4,7 @@ class CreateSchools < ActiveRecord::Migration
       t.string :school_name
       t.string :school_address
       t.integer :max_students
+    
 
       t.timestamps
     end

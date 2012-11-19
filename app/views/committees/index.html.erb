@@ -22,6 +22,13 @@
 <% end %>
 </table>
 
-<br />
+<br/><br/><br/><br/>
+<%= form_for @search, :url => committees_path, :html => {:method => :get} do |f| %>
+  <%= f.label :Search_by_committee_name %>
+  <%= f.text_field :committee_name_contains %><br />
+
+  <%= f.submit "Search for committee name"%>
+<br/>
 
 <%= link_to 'New Committee', new_committee_path %>
+<% end %>

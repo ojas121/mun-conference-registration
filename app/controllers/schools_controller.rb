@@ -10,6 +10,12 @@ class SchoolsController < ApplicationController
        format.xml { render :xml => @schools }
         format.xls { send_data @schools.to_xls, :filename => 'schools.xls' }
       format.json { render json: @schools }
+	  
+	   
+      	@search = School.search(params[:search])
+        @schools = @search.all   # load all matching records
+        
+	  
     end
   end
 
@@ -49,6 +55,10 @@ class SchoolsController < ApplicationController
       if @school.save
         format.html { redirect_to @school, notice: 'School was successfully created.' }
         format.json { render json: @school, status: :created, location: @school }
+        
+        # Provide a email confirmation if all is good...
+		UserMailer.new_school_msg(@school).deliver
+        
       else
         format.html { render action: "new" }
         format.json { render json: @school.errors, status: :unprocessable_entity }
