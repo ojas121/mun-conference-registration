@@ -35,6 +35,11 @@
     <%= f.label :conference_details %><br />
     <%= f.text_area :conference_details %>
   </div>
+  <div class="field">
+    <%= f.label :assign_conference_manager %><br />
+    <%= f.collection_select :user_id, User.with_role("Conferencemanager"), :id, :email %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -11,11 +11,18 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :role_ids
 
+  scope :with_role, lambda{ |role| joins(:roles).where(:roles => {:name => role}) }
+
   def role_symbols
   	roles.map do |role|
   		role.name.underscore.to_sym
   	end
   end
+
+  def role?(role)
+      return !!self.roles.find_by_name(role.to_s.camelize)
+  end
+
 
 
 end
