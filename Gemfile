@@ -10,7 +10,7 @@ gem 'rake', '10.0.1'
 gem 'devise'
 gem 'declarative_authorization'
 gem 'geocoder'
-
+gem 'to_xls'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

@@ -6,6 +6,8 @@ class SchoolsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
+       format.xml { render :xml => @schools }
+        format.xls { send_data @schools.to_xls, :filename => 'schools.xls' }
       format.json { render json: @schools }
     end
   end
