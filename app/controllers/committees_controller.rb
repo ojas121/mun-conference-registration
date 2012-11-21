@@ -8,6 +8,12 @@ class CommitteesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @committees }
+      
+      
+        	@search = Committee.search(params[:search])
+          @committees = @search.all   # load all matching records
+
+      
     end
   end
 
