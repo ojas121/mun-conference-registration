@@ -1,13 +1,12 @@
 class User < ActiveRecord::Base
 
-	has_many :user_roles
-	has_many :roles, :through => :user_roles
+	has_and_belongs_to_many :roles
 
   has_many :conferences
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
@@ -15,14 +14,23 @@ class User < ActiveRecord::Base
 
   scope :with_role, lambda{ |role| joins(:roles).where(:roles => {:name => role}) }
 
-  def role_symbols
-  	roles.map do |role|
-  		role.name.underscore.to_sym
-  	end
+  def role?(role)
+    return !!self.roles.find_by_name(role.to_s.camelize)
   end
 
   def user_name
       "#{first_name} #{last_name}"
+  end
+
+  def password_required?
+    super if confirmed?
+  end
+
+  def password_match?
+    self.errors[:password] << "can't be blank" if password.blank?
+    self.errors[:password_confirmation] << "can't be blank" if password_confirmation.blank?
+    self.errors[:password_confirmation] << "does not match password" if password != password_confirmation
+    password == password_confirmation && !password.blank?
   end
 
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121119193031) do
+ActiveRecord::Schema.define(:version => 20121124195530) do
 
   create_table "committee_schools", :force => true do |t|
     t.integer  "committee_id"
@@ -82,6 +82,11 @@ ActiveRecord::Schema.define(:version => 20121119193031) do
     t.string "name"
   end
 
+  create_table "roles_users", :id => false, :force => true do |t|
+    t.integer "role_id"
+    t.integer "user_id"
+  end
+
   create_table "schools", :force => true do |t|
     t.string   "school_name"
     t.string   "school_address"
@@ -89,13 +94,6 @@ ActiveRecord::Schema.define(:version => 20121119193031) do
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
     t.string   "email"
-  end
-
-  create_table "user_roles", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "role_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -109,6 +107,10 @@ ActiveRecord::Schema.define(:version => 20121119193031) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "first_name"

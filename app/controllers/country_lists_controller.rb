@@ -1,5 +1,5 @@
 class CountryListsController < ApplicationController
-  filter_resource_access
+  before_filter :authenticate_user!
   # GET /country_lists
   # GET /country_lists.json
   def index

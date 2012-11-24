@@ -6,9 +6,8 @@ gem 'rails', '3.2.1'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'rake', '10.0.1'
+gem 'rake', '10.0.2'
 gem 'devise'
-gem 'declarative_authorization'
 gem 'geocoder'
 gem 'to_xls'
 gem "meta_search" 

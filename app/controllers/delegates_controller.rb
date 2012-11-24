@@ -1,5 +1,5 @@
 class DelegatesController < ApplicationController
-  filter_resource_access
+  before_filter :authenticate_user!
   # GET /delegates
   # GET /delegates.json
   def index
