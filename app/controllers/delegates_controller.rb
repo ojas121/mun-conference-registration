@@ -1,5 +1,6 @@
 class DelegatesController < ApplicationController
   before_filter :authenticate_user!
+  load_and_authorize_resource
   # GET /delegates
   # GET /delegates.json
   def index
@@ -19,7 +20,7 @@ class DelegatesController < ApplicationController
   # GET /delegates/1
   # GET /delegates/1.json
   def show
-    @delegate = Delegate.find(params[:id])
+  #  @delegate = Delegate.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -30,7 +31,7 @@ class DelegatesController < ApplicationController
   # GET /delegates/new
   # GET /delegates/new.json
   def new
-    @delegate = Delegate.new
+  #  @delegate = Delegate.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -40,13 +41,13 @@ class DelegatesController < ApplicationController
 
   # GET /delegates/1/edit
   def edit
-    @delegate = Delegate.find(params[:id])
+  #  @delegate = Delegate.find(params[:id])
   end
 
   # POST /delegates
   # POST /delegates.json
   def create
-    @delegate = Delegate.new(params[:delegate])
+  #  @delegate = Delegate.new(params[:delegate])
 
     respond_to do |format|
       if @delegate.save
@@ -62,7 +63,7 @@ class DelegatesController < ApplicationController
   # PUT /delegates/1
   # PUT /delegates/1.json
   def update
-    @delegate = Delegate.find(params[:id])
+  #  @delegate = Delegate.find(params[:id])
 
     respond_to do |format|
       if @delegate.update_attributes(params[:delegate])
@@ -78,7 +79,7 @@ class DelegatesController < ApplicationController
   # DELETE /delegates/1
   # DELETE /delegates/1.json
   def destroy
-    @delegate = Delegate.find(params[:id])
+  #  @delegate = Delegate.find(params[:id])
     @delegate.destroy
 
     respond_to do |format|

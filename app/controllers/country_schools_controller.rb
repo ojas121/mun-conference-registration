@@ -1,5 +1,6 @@
 class CountrySchoolsController < ApplicationController
   before_filter :authenticate_user!
+  load_and_authorize_resource
   # GET /country_schools
   # GET /country_schools.json
   def index
@@ -14,7 +15,7 @@ class CountrySchoolsController < ApplicationController
   # GET /country_schools/1
   # GET /country_schools/1.json
   def show
-    @country_school = CountrySchool.find(params[:id])
+  #  @country_school = CountrySchool.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,7 +26,7 @@ class CountrySchoolsController < ApplicationController
   # GET /country_schools/new
   # GET /country_schools/new.json
   def new
-    @country_school = CountrySchool.new
+  #  @country_school = CountrySchool.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,13 +36,13 @@ class CountrySchoolsController < ApplicationController
 
   # GET /country_schools/1/edit
   def edit
-    @country_school = CountrySchool.find(params[:id])
+  #  @country_school = CountrySchool.find(params[:id])
   end
 
   # POST /country_schools
   # POST /country_schools.json
   def create
-    @country_school = CountrySchool.new(params[:country_school])
+  #  @country_school = CountrySchool.new(params[:country_school])
 
     respond_to do |format|
       if @country_school.save
@@ -57,7 +58,7 @@ class CountrySchoolsController < ApplicationController
   # PUT /country_schools/1
   # PUT /country_schools/1.json
   def update
-    @country_school = CountrySchool.find(params[:id])
+  #  @country_school = CountrySchool.find(params[:id])
 
     respond_to do |format|
       if @country_school.update_attributes(params[:country_school])
@@ -73,7 +74,7 @@ class CountrySchoolsController < ApplicationController
   # DELETE /country_schools/1
   # DELETE /country_schools/1.json
   def destroy
-    @country_school = CountrySchool.find(params[:id])
+  #  @country_school = CountrySchool.find(params[:id])
     @country_school.destroy
 
     respond_to do |format|

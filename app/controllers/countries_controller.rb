@@ -1,5 +1,6 @@
 class CountriesController < ApplicationController
   before_filter :authenticate_user!
+  load_and_authorize_resource
   # GET /countries
   # GET /countries.json
   def index
@@ -14,7 +15,7 @@ class CountriesController < ApplicationController
   # GET /countries/1
   # GET /countries/1.json
   def show
-    @country = Country.find(params[:id])
+  #  @country = Country.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,7 +26,7 @@ class CountriesController < ApplicationController
   # GET /countries/new
   # GET /countries/new.json
   def new
-    @country = Country.new
+  #  @country = Country.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,13 +36,13 @@ class CountriesController < ApplicationController
 
   # GET /countries/1/edit
   def edit
-    @country = Country.find(params[:id])
+  #  @country = Country.find(params[:id])
   end
 
   # POST /countries
   # POST /countries.json
   def create
-    @country = Country.new(params[:country])
+  #  @country = Country.new(params[:country])
 
     respond_to do |format|
       if @country.save
@@ -57,7 +58,7 @@ class CountriesController < ApplicationController
   # PUT /countries/1
   # PUT /countries/1.json
   def update
-    @country = Country.find(params[:id])
+  #  @country = Country.find(params[:id])
 
     respond_to do |format|
       if @country.update_attributes(params[:country])
@@ -73,7 +74,7 @@ class CountriesController < ApplicationController
   # DELETE /countries/1
   # DELETE /countries/1.json
   def destroy
-    @country = Country.find(params[:id])
+  #  @country = Country.find(params[:id])
     @country.destroy
 
     respond_to do |format|

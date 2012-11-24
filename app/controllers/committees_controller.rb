@@ -1,5 +1,6 @@
 class CommitteesController < ApplicationController
   before_filter :authenticate_user!
+  load_and_authorize_resource
   # GET /committees
   # GET /committees.json
   def index
@@ -20,7 +21,7 @@ class CommitteesController < ApplicationController
   # GET /committees/1
   # GET /committees/1.json
   def show
-    @committee = Committee.find(params[:id])
+  #  @committee = Committee.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -31,7 +32,7 @@ class CommitteesController < ApplicationController
   # GET /committees/new
   # GET /committees/new.json
   def new
-    @committee = Committee.new
+  #  @committee = Committee.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,13 +42,13 @@ class CommitteesController < ApplicationController
 
   # GET /committees/1/edit
   def edit
-    @committee = Committee.find(params[:id])
+  #  @committee = Committee.find(params[:id])
   end
 
   # POST /committees
   # POST /committees.json
   def create
-    @committee = Committee.new(params[:committee])
+  #  @committee = Committee.new(params[:committee])
 
     respond_to do |format|
       if @committee.save
@@ -63,7 +64,7 @@ class CommitteesController < ApplicationController
   # PUT /committees/1
   # PUT /committees/1.json
   def update
-    @committee = Committee.find(params[:id])
+  #  @committee = Committee.find(params[:id])
 
     respond_to do |format|
       if @committee.update_attributes(params[:committee])
@@ -79,7 +80,7 @@ class CommitteesController < ApplicationController
   # DELETE /committees/1
   # DELETE /committees/1.json
   def destroy
-    @committee = Committee.find(params[:id])
+  #  @committee = Committee.find(params[:id])
     @committee.destroy
 
     respond_to do |format|

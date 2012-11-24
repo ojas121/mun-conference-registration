@@ -1,5 +1,6 @@
 class CommitteeSchoolsController < ApplicationController
   before_filter :authenticate_user!
+  load_and_authorize_resource
   # GET /committee_schools
   # GET /committee_schools.json
   def index
@@ -20,7 +21,7 @@ class CommitteeSchoolsController < ApplicationController
   # GET /committee_schools/1
   # GET /committee_schools/1.json
   def show
-    @committee_school = CommitteeSchool.find(params[:id])
+  #  @committee_school = CommitteeSchool.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -31,7 +32,7 @@ class CommitteeSchoolsController < ApplicationController
   # GET /committee_schools/new
   # GET /committee_schools/new.json
   def new
-    @committee_school = CommitteeSchool.new
+  #  @committee_school = CommitteeSchool.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,13 +42,13 @@ class CommitteeSchoolsController < ApplicationController
 
   # GET /committee_schools/1/edit
   def edit
-    @committee_school = CommitteeSchool.find(params[:id])
+  #  @committee_school = CommitteeSchool.find(params[:id])
   end
 
   # POST /committee_schools
   # POST /committee_schools.json
   def create
-    @committee_school = CommitteeSchool.new(params[:committee_school])
+  #  @committee_school = CommitteeSchool.new(params[:committee_school])
 
     respond_to do |format|
       if @committee_school.save
@@ -63,7 +64,7 @@ class CommitteeSchoolsController < ApplicationController
   # PUT /committee_schools/1
   # PUT /committee_schools/1.json
   def update
-    @committee_school = CommitteeSchool.find(params[:id])
+  #  @committee_school = CommitteeSchool.find(params[:id])
 
     respond_to do |format|
       if @committee_school.update_attributes(params[:committee_school])
@@ -79,7 +80,7 @@ class CommitteeSchoolsController < ApplicationController
   # DELETE /committee_schools/1
   # DELETE /committee_schools/1.json
   def destroy
-    @committee_school = CommitteeSchool.find(params[:id])
+  #  @committee_school = CommitteeSchool.find(params[:id])
     @committee_school.destroy
 
     respond_to do |format|

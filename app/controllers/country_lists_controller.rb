@@ -1,5 +1,6 @@
 class CountryListsController < ApplicationController
   before_filter :authenticate_user!
+  load_and_authorize_resource
   # GET /country_lists
   # GET /country_lists.json
   def index
@@ -14,7 +15,7 @@ class CountryListsController < ApplicationController
   # GET /country_lists/1
   # GET /country_lists/1.json
   def show
-    @country_list = CountryList.find(params[:id])
+  #  @country_list = CountryList.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,7 +26,7 @@ class CountryListsController < ApplicationController
   # GET /country_lists/new
   # GET /country_lists/new.json
   def new
-    @country_list = CountryList.new
+  #  @country_list = CountryList.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,13 +36,13 @@ class CountryListsController < ApplicationController
 
   # GET /country_lists/1/edit
   def edit
-    @country_list = CountryList.find(params[:id])
+  #  @country_list = CountryList.find(params[:id])
   end
 
   # POST /country_lists
   # POST /country_lists.json
   def create
-    @country_list = CountryList.new(params[:country_list])
+  #  @country_list = CountryList.new(params[:country_list])
 
     respond_to do |format|
       if @country_list.save
@@ -57,7 +58,7 @@ class CountryListsController < ApplicationController
   # PUT /country_lists/1
   # PUT /country_lists/1.json
   def update
-    @country_list = CountryList.find(params[:id])
+  #  @country_list = CountryList.find(params[:id])
 
     respond_to do |format|
       if @country_list.update_attributes(params[:country_list])
@@ -73,7 +74,7 @@ class CountryListsController < ApplicationController
   # DELETE /country_lists/1
   # DELETE /country_lists/1.json
   def destroy
-    @country_list = CountryList.find(params[:id])
+  #  @country_list = CountryList.find(params[:id])
     @country_list.destroy
 
     respond_to do |format|

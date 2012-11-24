@@ -8,6 +8,7 @@ gem 'rails', '3.2.1'
 gem 'sqlite3'
 gem 'rake', '10.0.2'
 gem 'devise'
+gem 'cancan'
 gem 'geocoder'
 gem 'to_xls'
 gem "meta_search" 
