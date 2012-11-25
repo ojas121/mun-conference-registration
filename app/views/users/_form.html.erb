@@ -1,30 +1,97 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<section id="forms">
+  <div class="page-header">
+    <h2>Sign up</h2>
+  </div>
 
-      <ul>
-        <% @user.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+  <div class="row">
+    <div class="span7 offset2">
+      <div class="form-horizontal well">
+        <%= form_for(@user) do |f| %>
+          <% if @user.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+              <ul>
+                <% @user.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <legend>Account Details</legend>
+          
+          <div class="control-group">
+            <%= f.label :first_name, :class => "control-label" %>
+            <div class="controls">
+              <%= f.text_field :first_name %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <%= f.label :last_name, :class => "control-label" %>
+            <div class="controls">
+              <%= f.text_field :last_name %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <%= f.label :gender, :class => "control-label" %>
+            <div class="controls">
+              <%= f.select :gender, ['Male', 'Female'] %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <%= f.label :nationality, :class => "control-label" %>
+            <div class="controls">
+              <%= f.text_field :nationality %>
+            </div>
+          </div>
+          
+          <div class="control-group">
+            <%= f.label :email, :class => "control-label" %>
+            <div class="controls">
+              <%= f.email_field :email %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <%= f.label :password, :class => "control-label" %>
+            <div class="controls">
+              <%= f.password_field :password %>
+            </div>
+          </div>
+
+          <div class="control-group">
+            <%= f.label :password_confirmation, :class => "control-label" %>
+            <div class="controls">
+              <%= f.password_field :password_confirmation %>
+            </div>
+          </div>
+
+          <% if current_user.role? :"System Admin" %>
+            <div class="control-group">
+              <%= f.label :roles, :class => "control-label" %>
+              <div class="controls">
+                <% for role in Role.find(:all)  %>
+                <label class="checkbox">
+                  <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
+                  <%= role.name %>
+                </label>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+          
+          <div class="control-group">
+            <div class="controls">
+              <%= f.submit "Update Account", :class => "btn btn-primary"%>
+              <%= link_to "Cancel", root_path, :class => "btn" %>
+            </div>
+          </div>
         <% end %>
-      </ul>
+      </div>
     </div>
-  <% end %>
-  
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
   </div>
-
-  <% for role in Role.find(:all) %>
-    <div>
-      <%= check_box_tag "user[role_ids][]", role.id, @user.roles.include?(role) %>
-      <%= role.name %>
-    </div>
-  <% end %>
-
-  
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</section>
