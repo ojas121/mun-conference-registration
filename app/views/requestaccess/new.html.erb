@@ -1,0 +1,47 @@
+<%= form_for @message, :url => contact_path do |form| %>
+  <fieldset class="fields">
+    <div class="field">
+      <%= form.label :school_name %>
+      <%= form.text_field :school_name %>
+    </div>
+    
+    <div class="field">
+      <%= form.label :first_name %>
+      <%= form.text_field :first_name %>
+    </div>
+    <div class="field">
+      <%= form.label :last_name %>
+      <%= form.text_field :last_name %>
+    </div>
+    
+    <div class="field">
+      <%= form.label :email %>
+      <%= form.text_area :email %>
+    </div>
+
+  
+
+    <div class="field">
+      <%= form.label :nationality %>
+      <%= form.text_area :nationality %>
+    </div>
+
+
+    <div class="field">
+      <%= form.label :gender %>
+      <%= form.text_area :gender %>
+    </div>
+
+
+    <div class="field">
+      <%= form.label :details %>
+      <%= form.text_area :details %>
+    </div>
+
+  <fieldset class="actions">
+    <%= form.submit "Send" %>
+  </fieldset>
+<% end %>
+
+
+

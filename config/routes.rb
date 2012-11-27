@@ -32,6 +32,9 @@ I3s::Application.routes.draw do
 
   resources :conferences
 
+  match 'requestaccess' => 'requestaccess#new', :as => 'requestaccess', :via => :get
+match 'requestaccess' => 'requestaccess#create', :as => 'requestaccess', :via => :post
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
