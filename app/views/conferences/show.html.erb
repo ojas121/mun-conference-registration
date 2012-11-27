@@ -24,6 +24,9 @@
         <%= render :partial => 'list_of_committees' %>
         <%= link_to 'Create Committee', new_committee_path(@committee) %>
       </p>
+      <% if @conference.is_active == true %>
+      <p>hello</p>
+      <% end %>
     </div>
 
     <div class="span6 well">

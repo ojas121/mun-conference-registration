@@ -4,16 +4,22 @@ class ConferencesController < ApplicationController
   # GET /conferences
   # GET /conferences.json
   def index
-    @conferences = Conference.all
+    if current_user.role? :"System Admin"
+      @conferences = Conference.all
+    else
+      @conferences = Conference.where("is_active == ?", true)
+    end
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @conferences }
-      
-       	@search = Conference.search(params[:search])
-        @conferences = @search.all   # load all matching records
-      
-      
+
+      @search = Conference.search(params[:search])
+      if current_user.role? :"System Admin"
+        @conferences = @search.all
+      else
+        @conferences = @search.where("is_active == ?", true)
+      end
     end
   end
 
