@@ -1,4 +1,6 @@
 class School < ActiveRecord::Base
+
+	belongs_to :conference
 	has_many :delegates
 
 	has_many :country_schools

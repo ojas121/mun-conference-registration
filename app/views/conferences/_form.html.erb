@@ -3,6 +3,7 @@
     <div id="error_explanation">
       <h2><%= pluralize(@conference.errors.count, "error") %> prohibited this conference from being saved:</h2>
 
+
       <ul>
       <% @conference.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -39,10 +40,7 @@
     <%= f.label :assign_conference_manager %><br />
     <%= f.collection_select :user_id, User.with_role("Conference Manager"), :id, :user_name %>
   </div>
-  <div class="field">
-    <%= f.label :is_active %><br />
-    <%= f.check_box :is_active %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
