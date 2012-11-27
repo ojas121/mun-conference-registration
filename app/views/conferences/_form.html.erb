@@ -39,6 +39,10 @@
     <%= f.label :assign_conference_manager %><br />
     <%= f.collection_select :user_id, User.with_role("Conference Manager"), :id, :user_name %>
   </div>
+  <div class="field">
+    <%= f.label :is_active %><br />
+    <%= f.check_box :is_active %>
+  </div>
 
   <div class="actions">
     <%= f.submit %>

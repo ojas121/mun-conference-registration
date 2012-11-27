@@ -7,6 +7,7 @@ class CreateConferences < ActiveRecord::Migration
       t.string :host
       t.string :venue
       t.text :conference_details
+      t.boolean :is_active
 
       t.timestamps
     end
