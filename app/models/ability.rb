@@ -9,7 +9,7 @@ class Ability
         can :manage, :all
     else
         if user.role? :"Conference Manager"
-            can :read, :all
+            can :manage, :all
         end
     end
     # Define abilities for the passed in user here. For example:
