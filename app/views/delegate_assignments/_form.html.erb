@@ -1,0 +1,29 @@
+<%= form_for(@delegate_assignment) do |f| %>
+  <% if @delegate_assignment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@delegate_assignment.errors.count, "error") %> prohibited this delegate_assignment from being saved:</h2>
+
+      <ul>
+      <% @delegate_assignment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :delegate_id %><br />
+    <%= f.collection_select :delegate_id, Delegate.all, :id, :delegate_name %>
+  </div>
+  <div class="field">
+    <%= f.label :country_id %><br />
+    <%= f.collection_select :country_id, Country.all, :id, :country_name %>
+  </div>
+  <div class="field">
+    <%= f.label :committee_id %><br />
+    <%= f.collection_select :committee_id, Committee.all, :id, :committee_name %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

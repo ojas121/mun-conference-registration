@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121129132637) do
+ActiveRecord::Schema.define(:version => 20121129145543) do
 
   create_table "committee_schools", :force => true do |t|
     t.integer  "committee_id"
@@ -58,6 +58,15 @@ ActiveRecord::Schema.define(:version => 20121129132637) do
     t.integer  "list_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "delegate_assignments", :force => true do |t|
+    t.integer  "delegate_id"
+    t.integer  "country_id"
+    t.integer  "committee_id"
+    t.integer  "conference_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "delegates", :force => true do |t|

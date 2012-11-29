@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Delegate:</b>
+  <%= @delegate_assignment.delegate_id %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%= @delegate_assignment.country_id %>
+</p>
+
+<p>
+  <b>Committee:</b>
+  <%= @delegate_assignment.committee_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_delegate_assignment_path(@delegate_assignment) %> |
+<%= link_to 'Back', delegate_assignments_path %>

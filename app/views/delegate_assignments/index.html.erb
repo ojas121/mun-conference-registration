@@ -1,0 +1,27 @@
+<h1>Listing delegate_assignments</h1>
+
+<table>
+  <tr>
+    <th>Delegate</th>
+    <th>Country</th>
+    <th>Committee</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @delegate_assignments.each do |delegate_assignment| %>
+  <tr>
+    <td><%= delegate_assignment.delegate_id %></td>
+    <td><%= delegate_assignment.country_id %></td>
+    <td><%= delegate_assignment.committee_id %></td>
+    <td><%= link_to 'Show', delegate_assignment %></td>
+    <td><%= link_to 'Edit', edit_delegate_assignment_path(delegate_assignment) %></td>
+    <td><%= link_to 'Destroy', delegate_assignment, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Delegate assignment', new_delegate_assignment_path %>
