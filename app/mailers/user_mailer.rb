@@ -6,8 +6,12 @@ class UserMailer < ActionMailer::Base
      @school = school
      mail(:to => school.email, :subject => "Conference Participation Confirmation")
    end
-  
-  
+
+   def edit_school_msg(school)
+     @school = school
+     mail(:to => school.email, :subject => "Countries assigned for your school")
+   end
+
    def new_user_msg(user)
       @user = user
       mail(:to => user.email, :subject => "Sing up confirmation")

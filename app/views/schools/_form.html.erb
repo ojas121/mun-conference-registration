@@ -15,20 +15,32 @@
     <%= f.label :school_name %><br />
     <%= f.text_field :school_name %>
   </div>
+  
   <div class="field">
     <%= f.label :school_address %><br />
     <%= f.text_field :school_address %>
   </div>
 
-<div class="field">
+  <div class="field">
     <%= f.label :email %><br />
- <%= f.text_field :email %>
+    <%= f.text_field :email %>
   </div>
 
+  <%= f.hidden_field :email, :value => current_user.email %>
   <div class="field">
     <%= f.label :max_students %><br />
     <%= f.number_field :max_students %>
   </div>
+
+  <% for list in List.btaconference(Conference.where("is_active == ?", true)[0].conference_title) %>
+    <li><%= link_to((list.list_name), list_path(list)) %></li>
+    <% for country in Country.btalist(list.list_name) %>
+      <div>
+        <%= check_box_tag "school[country_ids][]", country.id, @school.countries.include?(country) %>
+        <%= country.country_name %>
+      </div>
+    <% end %>
+  <% end %>
 
   <%= f.collection_select :conference_id, Conference.where("is_active == ?", true), :id, :conference_title %>
 

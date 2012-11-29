@@ -4,9 +4,10 @@
   <tr>
     <th>School name</th>
     <th>School address</th>
-<th>Email address</th>
+    <th>Email address</th>
     <th>Max students</th>
     <th>Conference</th>
+    <th>User</th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,9 +17,10 @@
   <tr>
     <td><%= school.school_name %></td>
     <td><%= school.school_address %></td>
-<td><%= school.email %></td>
+    <td><%= school.email %></td>
     <td><%= school.max_students %></td>
     <td><%= school.conference.conference_title %></td>
+    <td><%= school.user_id %></td>
     <td><%= link_to 'Show', school %></td>
     <td><%= link_to 'Edit', edit_school_path(school) %></td>
     <td><%= link_to 'Destroy', school, confirm: 'Are you sure?', method: :delete %></td>

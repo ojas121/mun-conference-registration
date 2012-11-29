@@ -22,6 +22,13 @@
 </p>
 
 <p>
+  <b>Countries:</b>
+  <% for country in @school.countries %>
+		<li><%= link_to((country.country_name), country_path(country)) %></li>
+  <% end  %>
+
+</p>
+<p>
 <%= render :partial => 'list_of_delegates' %>
 <%= link_to 'Create Delegate', new_delegate_path(@delegate) %>
 </p>

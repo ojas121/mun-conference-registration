@@ -58,7 +58,7 @@ class SchoolsController < ApplicationController
         format.json { render json: @school, status: :created, location: @school }
         
         # Provide a email confirmation if all is good...
-		UserMailer.new_school_msg(@school).deliver
+		    UserMailer.new_school_msg(@school).deliver
         
       else
         format.html { render action: "new" }
@@ -76,6 +76,9 @@ class SchoolsController < ApplicationController
       if @school.update_attributes(params[:school])
         format.html { redirect_to @school, notice: 'School was successfully updated.' }
         format.json { head :no_content }
+        if current_user.role? :"Conference Manager"
+          UserMailer.edit_school_msg(@school).deliver
+        end
       else
         format.html { render action: "edit" }
         format.json { render json: @school.errors, status: :unprocessable_entity }
