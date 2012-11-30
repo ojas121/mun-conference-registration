@@ -41,19 +41,19 @@ class ListsController < ApplicationController
 
   # POST /lists
   # POST /lists.json
-  def create
-  #  @list = List.new(params[:list])
+  # def create
+  # #  @list = List.new(params[:list])
 
-    respond_to do |format|
-      if @list.save
-        format.html { redirect_to @list, notice: 'List was successfully created.' }
-        format.json { render json: @list, status: :created, location: @list }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @list.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  #   respond_to do |format|
+  #     if @list.save
+  #       format.html { redirect_to @list, notice: 'List was successfully created.' }
+  #       format.json { render json: @list, status: :created, location: @list }
+  #     else
+  #       format.html { render action: "new" }
+  #       format.json { render json: @list.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # PUT /lists/1
   # PUT /lists/1.json
@@ -73,13 +73,26 @@ class ListsController < ApplicationController
 
   # DELETE /lists/1
   # DELETE /lists/1.json
-  def destroy
-  #  @list = List.find(params[:id])
-    @list.destroy
+  # def destroy
+  # #  @list = List.find(params[:id])
+  #   @list.destroy
 
-    respond_to do |format|
-      format.html { redirect_to lists_url }
-      format.json { head :no_content }
-    end
+  #   respond_to do |format|
+  #     format.html { redirect_to lists_url }
+  #     format.json { head :no_content }
+  #   end
+  # end
+
+  def create
+    @conference = Conference.find(params[:conference_id])
+    @list = @conference.lists.create(params[:list])
+    redirect_to conference_path(@conference)
+  end
+
+  def destroy
+    @conference = Conference.find(params[:conference_id])
+    @list = @conference.lists.find(params[:id])
+    @list.destroy
+    redirect_to conference_path(@conference)
   end
 end

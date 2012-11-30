@@ -1,15 +1,4 @@
-<%= form_for(@list) do |f| %>
-  <% if @list.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@list.errors.count, "error") %> prohibited this list from being saved:</h2>
-
-      <ul>
-      <% @list.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_for([@conference, @conference.lists.build]) do |f| %>
 
   <div class="field">
     <%= f.label :list_name %><br />
@@ -17,10 +6,13 @@
   </div>
   <div class="field">
     <%= f.label :countries %><br />
-    <%= render :partial => 'countries_checkboxes' %>
+    <%= render :partial => 'lists/countries_checkboxes' %>
   </div>
-  <%= f.collection_select :conference_id, Conference.where("is_active == ?", true), :id, :conference_title %>
-  
+  <% for country in Country.all  %>
+     <%= check_box_tag "list[country_ids][]", country.id, @conference.lists.include?(country) %>
+     <%= country.country_name %>
+     <br />
+  <% end  %>
   <div class="actions">
     <%= f.submit %>
   </div>

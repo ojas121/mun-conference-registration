@@ -84,9 +84,9 @@ ActiveRecord::Schema.define(:version => 20121129145543) do
 
   create_table "lists", :force => true do |t|
     t.string   "list_name"
+    t.integer  "conference_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
-    t.integer  "conference_id"
   end
 
   create_table "messages", :force => true do |t|

@@ -22,16 +22,17 @@ I3s::Application.routes.draw do
 
   resources :assignments
   
-    resources :delegates
+  resources :delegates
   
-
   resources :schools do
     resources :delegates
   end
 
   resources :committees
 
-  resources :conferences
+  resources :conferences do
+    resources :lists
+  end
 
   match 'requestaccess' => 'requestaccess#new', :as => 'requestaccess', :via => :get
 match 'requestaccess' => 'requestaccess#create', :as => 'requestaccess', :via => :post

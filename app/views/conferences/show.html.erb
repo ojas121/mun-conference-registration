@@ -27,7 +27,23 @@
       <p>
         <%= render :partial => 'list_of_committees' %>
         <%= link_to 'Create Committee', new_committee_path(@committee) %>
-      </p>
+      </p>  
+
+      <h2>Lists</h2>
+      <%= render @conference.lists %>
+
+      <a href="#createlist" role="button" class="btn" data-toggle="modal">Create New List</a>
+
+
+      <div id="createlist" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="myModalLabel">Add List</h3>
+        </div>
+        <div class="modal-body">
+          <%= render 'lists/form' %>
+        </div>
+      </div>
     </div>
 
     <div class="span6 well">

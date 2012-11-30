@@ -1,0 +1,4 @@
+<p>
+  <%= link_to list.list_name, list_path(@list) %>
+  <%= link_to 'Remove', [list.conference, list], :confirm => 'Really remove list?', :method => :delete %>
+</p>
