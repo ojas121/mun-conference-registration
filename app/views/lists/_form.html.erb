@@ -20,6 +20,7 @@
     <%= render :partial => 'countries_checkboxes' %>
   </div>
   <%= f.collection_select :conference_id, Conference.where("is_active == ?", true), :id, :conference_title %>
+  
   <div class="actions">
     <%= f.submit %>
   </div>
