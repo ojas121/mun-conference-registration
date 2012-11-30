@@ -1,7 +1,85 @@
-<h1>Listing committee_schools</h1>
+<script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-dropdown.js"></script>
 
-<table>
+<ul class="nav nav-tabs">
+  <li class="dropdown">
+    <a class="dropdown-toggle"
+data-toggle="dropdown"
+       href="#">
+        Users
+
+        <b class="caret"></b>
+      </a>
+      
+    <ul class="dropdown-menu">
+       <li><%= link_to "MUN School Director", lists_path %></li>
+<li><%= link_to "System Admin", lists_path %></li>
+<li><%= link_to "Conference Manager", lists_path %></li>
+    </ul>
+ 
+	<li><%= link_to "Conferences", conferences_path %></li>
+	<li><%= link_to "Committees", committees_path %></li>
+	<li><%= link_to "Delegates", delegates_path %></li>
+	<li><%= link_to "Schools", schools_path %></li>
+	
+
+<li class="dropdown">
+	<a class="dropdown-toggle"	data-toggle="dropdown"
+	       href="#">
+	        Country
+
+	        <b class="caret"></b>
+	      </a>
+
+	    <ul class="dropdown-menu">
+		<li><%= link_to "Countries", countries_path %></li>
+	     <li><%= link_to "Country custom lists", lists_path %></li>
+		<li><%= link_to "Countries lists", country_lists_path %></li>
+	    </ul>
+</li>
+
+<li class="dropdown">
+	<a class="dropdown-toggle"	data-toggle="dropdown"
+	       href="#">
+	        Delegates
+
+	        <b class="caret"></b>
+	      </a>
+
+	    <ul class="dropdown-menu">
+		<li><%= link_to "Delegates lists", delegates_path %></li>
+	     <li><%= link_to "Delegates assignments list", delegate_assignments_path %></li>
+	    </ul>
+</li>
+</ul>
+
+
+</ul>
+
+
+
+</br>
+
+	<div class="span11">
+	       <div class="well form-inline">
+	           <class="table table-striped ">
+	
+						
+			<class="page-header">
+			    <h3>Schools within committees</h3>
+		
+ <button class="btn pull-left form-inline"><%= link_to 'New Committee school', new_committee_school_path %>
+</button>		
+			</br> </br>
+	         </div>
+	       </div>
+
+
+<table class="table table-striped">
+
+    <thead>
+
   <tr>
+
     <th>Committee</th>
     <th>School</th>
     <th></th>
@@ -22,4 +100,3 @@
 
 <br />
 
-<%= link_to 'New Committee school', new_committee_school_path %>

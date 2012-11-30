@@ -13,35 +13,35 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :conference_title %><br />
+    <%= f.label :conference_title %>
     <%= f.text_field :conference_title %>
   </div>
   <div class="field">
-    <%= f.label :start_date %><br />
+    <%= f.label :start_date %>
     <%= f.date_select :start_date %>
   </div>
   <div class="field">
-    <%= f.label :end_date %><br />
+    <%= f.label :end_date %>
     <%= f.date_select :end_date %>
   </div>
   <div class="field">
-    <%= f.label :host %><br />
+    <%= f.label :host %>
     <%= f.text_field :host %>
   </div>
   <div class="field">
-    <%= f.label :venue %><br />
+    <%= f.label :venue %>
     <%= f.text_field :venue %>
   </div>
   <div class="field">
-    <%= f.label :conference_details %><br />
+    <%= f.label :conference_details %>
     <%= f.text_area :conference_details %>
   </div>
   <div class="field">
-    <%= f.label :assign_conference_manager %><br />
+    <%= f.label :assign_conference_manager %>
     <%= f.collection_select :user_id, User.with_role("Conference Manager"), :id, :user_name %>
   </div>
   <div class="field">
-    <%= f.label :is_active %><br />
+    <%= f.label :is_active %>
     <%= f.check_box :is_active %>
   </div>
   <div class="actions">

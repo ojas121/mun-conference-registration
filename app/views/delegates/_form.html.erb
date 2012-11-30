@@ -16,26 +16,33 @@
     <%= f.text_field :first_name %>
   </div>
   <div class="field">
-    <%= f.label :last_name %><br />
+    <%= f.label :last_name %>
     <%= f.text_field :last_name %>
   </div>
+
+	  <div class="control-group">
+      <%= f.label :gender, :class => "control-label" %>
+      <div class="controls">
+        <%= f.select :gender, ['Male', 'Female'] %>
+      </div>
+    </div>
+
   <div class="field">
-    <%= f.label :gender %><br />
-    <%= f.text_field :gender %>
-  </div>
-  <div class="field">
-    <%= f.label :date_of_birth %><br />
+    <%= f.label :date_of_birth %>
     <%= f.date_select :date_of_birth %>
   </div>
   <div class="field">
-    <%= f.label :nationality %><br />
+    <%= f.label :nationality %>
     <%= f.text_field :nationality %>
   </div>
   <div class="field">
-    <%= f.label :school_id %><br />
+    <%= f.label :school_id %>
     <%= f.collection_select :school_id, School.all, :id, :school_name %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+	<button type="submit" class="btn">Create delegate</button>
   </div>
+
+
+
 <% end %>
