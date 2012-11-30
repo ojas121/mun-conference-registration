@@ -1,7 +1,8 @@
 class School < ActiveRecord::Base
 
 	belongs_to :conference
-	has_many :delegates
+	has_many :delegates, :dependent => :destroy
+	accepts_nested_attributes_for :delegates, :allow_destroy => :true
 	has_and_belongs_to_many :countries
 
 	has_many :committee_schools

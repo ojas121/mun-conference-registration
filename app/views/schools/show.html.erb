@@ -28,10 +28,27 @@
   <% end  %>
 
 </p>
-<p>
+<!-- <p>
 <%= render :partial => 'list_of_delegates' %>
 <%= link_to 'Create Delegate', new_delegate_path(@delegate) %>
 </p>
+ -->
+<b>Delegates:</b>
+<%= render @school.delegates %>
+
+<a href="#createdelegate" role="button" class="btn" data-toggle="modal">Create New Delegate</a>
+
+
+<div id="createdelegate" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Add Delegate</h3>
+  </div>
+  <div class="modal-body">
+    <%= render 'delegates/form' %>
+  </div>
+</div>
+
 
 
 <%= link_to 'Edit', edit_school_path(@school) %> |

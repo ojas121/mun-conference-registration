@@ -22,9 +22,12 @@ I3s::Application.routes.draw do
 
   resources :assignments
   
-  resources :delegates
+    resources :delegates
+  
 
-  resources :schools
+  resources :schools do
+    resources :delegates
+  end
 
   resources :committees
 

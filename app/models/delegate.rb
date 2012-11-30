@@ -1,7 +1,7 @@
 class Delegate < ActiveRecord::Base
 	belongs_to :school
 
-	def delegate_name
+	def fullname
       "#{first_name} #{last_name}"
     end
 end

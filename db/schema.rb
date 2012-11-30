@@ -80,6 +80,8 @@ ActiveRecord::Schema.define(:version => 20121129145543) do
     t.datetime "updated_at",    :null => false
   end
 
+  add_index "delegates", ["school_id"], :name => "index_delegates_on_school_id"
+
   create_table "lists", :force => true do |t|
     t.string   "list_name"
     t.datetime "created_at",    :null => false

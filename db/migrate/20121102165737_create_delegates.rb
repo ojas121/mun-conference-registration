@@ -6,9 +6,11 @@ class CreateDelegates < ActiveRecord::Migration
       t.string :gender
       t.date :date_of_birth
       t.string :nationality
-      t.integer :school_id
+      t.references :school
 
       t.timestamps
     end
+
+    add_index :delegates, :school_id
   end
 end

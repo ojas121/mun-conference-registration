@@ -46,19 +46,19 @@ class DelegatesController < ApplicationController
 
   # POST /delegates
   # POST /delegates.json
-  def create
-  #  @delegate = Delegate.new(params[:delegate])
+  # def create
+  # #  @delegate = Delegate.new(params[:delegate])
 
-    respond_to do |format|
-      if @delegate.save
-        format.html { redirect_to @delegate, notice: 'Delegate was successfully created.' }
-        format.json { render json: @delegate, status: :created, location: @delegate }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @delegate.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  #   respond_to do |format|
+  #     if @delegate.save
+  #       format.html { redirect_to @delegate, notice: 'Delegate was successfully created.' }
+  #       format.json { render json: @delegate, status: :created, location: @delegate }
+  #     else
+  #       format.html { render action: "new" }
+  #       format.json { render json: @delegate.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # PUT /delegates/1
   # PUT /delegates/1.json
@@ -78,13 +78,26 @@ class DelegatesController < ApplicationController
 
   # DELETE /delegates/1
   # DELETE /delegates/1.json
-  def destroy
-  #  @delegate = Delegate.find(params[:id])
-    @delegate.destroy
+  # def destroy
+  # #  @delegate = Delegate.find(params[:id])
+  #   @delegate.destroy
 
-    respond_to do |format|
-      format.html { redirect_to delegates_url }
-      format.json { head :no_content }
-    end
-  end
+  #   respond_to do |format|
+  #     format.html { redirect_to delegates_url }
+  #     format.json { head :no_content }
+  #   end
+  # end
+
+  def create
+  @school = School.find(params[:school_id])
+  @delegate = @school.delegates.create(params[:delegate])
+  redirect_to school_path(@school)
+end
+
+def destroy
+  @school = School.find(params[:school_id])
+  @delegate = @school.delegates.find(params[:id])
+  @delegate.destroy
+  redirect_to school_path(@school)
+end
 end
