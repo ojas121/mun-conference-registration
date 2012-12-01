@@ -55,6 +55,7 @@ class ConferencesController < ApplicationController
       if @conference.save
         format.html { redirect_to @conference, notice: 'Conference was successfully created.' }
         format.json { render json: @conference, status: :created, location: @conference }
+        UserMailer.new_conference_msg(@conference).deliver
       else
         format.html { render action: "new" }
         format.json { render json: @conference.errors, status: :unprocessable_entity }
