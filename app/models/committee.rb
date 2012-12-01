@@ -4,4 +4,6 @@ class Committee < ActiveRecord::Base
 
 	has_many :committee_schools
 	has_many :schools, :through => :committee_schools
+
+	has_many :countries
 end

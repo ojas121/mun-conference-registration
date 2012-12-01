@@ -25,6 +25,14 @@
     <%= f.label :nationality %>
     <%= f.text_field :nationality %>
   </div>
+  <div class="field">
+    <%= f.label :country %>
+    <%= f.collection_select :country_id, Country.btaschool(@school), :id, :country_name %>
+  </div>
+  <div class="field">
+    <%= f.label :committee %>
+    <%= f.collection_select :committee_id, Country.btaschool(@school)[0].lists[0].committees, :id, :committee_name %>
+  </div>
   <div class="actions">
 	<button type="submit" class="btn">Create delegate</button>
   </div>

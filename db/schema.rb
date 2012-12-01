@@ -77,6 +77,8 @@ ActiveRecord::Schema.define(:version => 20121129145543) do
     t.date     "date_of_birth"
     t.string   "nationality"
     t.integer  "school_id"
+    t.integer  "country_id"
+    t.integer  "committee_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end

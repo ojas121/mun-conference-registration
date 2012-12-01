@@ -7,6 +7,8 @@ class CreateDelegates < ActiveRecord::Migration
       t.date :date_of_birth
       t.string :nationality
       t.references :school
+      t.integer :country_id
+      t.integer :committee_id
 
       t.timestamps
     end

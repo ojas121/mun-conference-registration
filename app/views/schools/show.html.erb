@@ -35,7 +35,7 @@
  -->
 <b>Delegates:</b>
 <%= render @school.delegates %>
-<% if @school.countries == nil %>
+<% if @school.countries != nil %>
 <a href="#createdelegate" role="button" class="btn" data-toggle="modal">Create New Delegate</a>
 <% end %>
 
