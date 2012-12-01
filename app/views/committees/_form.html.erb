@@ -12,19 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :committee_name %><br />
+    <%= f.label :committee_name %>
     <%= f.text_field :committee_name %>
   </div>
   <div class="field">
-    <%= f.label :num_delegates %><br />
+    <%= f.label :Number_of_delegates %>
     <%= f.number_field :num_delegates %>
   </div>
   <div class="field">
-    <%= f.label :list_id %><br />
+    <%= f.label :list_id %>
     <%= f.collection_select :list_id, List.all, :id, :list_name %>
   </div>
   <div class="field">
-    <%= f.label :conference_id %><br />
+    <%= f.label :conference_id %>
     <%= f.collection_select :conference_id, Conference.all, :id, :conference_title %>
   </div>
   <div class="actions">

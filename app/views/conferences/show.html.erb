@@ -8,7 +8,15 @@
         <h1><%= @conference.conference_title %></h1>
         <h3 style="color: #39b1c6;"><%= @conference.start_date.strftime('%B %e, %Y') %> - <%= @conference.end_date.strftime('%B %e, %Y') %></h3>
         <p>Hosted by <%= @conference.host %></p>
-        <p><%= @conference.conference_details %></p>
+        
+
+	  <div class="row-fluid">
+	    <div class="span6 well">
+		<h3>Conference Description</h3>
+<p><%= @conference.conference_details %></p>
+</div></div>
+
+
         <p class="well">
           <%= link_to image_tag('edit.png'), edit_conference_path(@conference) %>&nbsp;&nbsp;<%= link_to 'Edit Conference', edit_conference_path(@conference) %>
 
@@ -23,22 +31,31 @@
 
   <div class="row-fluid">
     <div class="span6 well">
-      <h3>Committees</h3>
-      <p>
-        <%= render :partial => 'list_of_committees' %>
-        <%= link_to 'Create Committee', new_committee_path(@committee) %>
-      </p>  
+     
 
-      <h2>Lists</h2>
-      <%= render @conference.lists %>
 
-      <a href="#createlist" role="button" class="btn" data-toggle="modal">Create New List</a>
+ <h3>Add committees to conference</h3>
+ 	<table class="table table-bordered">
+	    <thead>
+		<th>  <%= render :partial => 'list_of_committees' %></th>
+	</table>
+ <button class="btn"><%= link_to 'Create Committee', new_committee_path(@committee) %></button>
+
+
+</br></br>
+
+      <h3>Create country lists</h3>
+<p>
+	<%= render @conference.lists %>
+	<a href="#createlist" role="button" class="btn" data-toggle="modal"> Create List</a>
+</p>
+
 
 
       <div id="createlist" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h3 id="myModalLabel">Add List</h3>
+          <h3 id="myModalLabel">Add Country List</h3>
         </div>
         <div class="modal-body">
           <%= render 'lists/form' %>
