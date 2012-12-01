@@ -19,7 +19,7 @@
 
   <div class="field">
     <%= f.label :date_of_birth %>
-    <%= f.date_select :date_of_birth %>
+    <%= f.date_select :date_of_birth, :start_year => Time.now.year - 70, :end_year => Time.now.year - 12 %>
   </div>
   <div class="field">
     <%= f.label :nationality %>

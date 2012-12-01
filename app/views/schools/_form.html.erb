@@ -32,22 +32,6 @@
     <%= f.number_field :max_students %>
   </div>
 
-
-  <div class="field">
-    <%= f.label :Country_list %>
-  </div>
-
-  <% for list in List.btaconference(Conference.where("is_active == ?", true)[0].conference_title) %>
-    <%= link_to((list.list_name), list_path(list)) %> 
-    <% for country in Country.btalist(list.list_name) %>
-      <div>
-        <%= check_box_tag "school[country_ids][]", country.id, @school.countries.include?(country) %>
-        <%= country.country_name %>
-      </div>
-    <% end %>
-  <% end %>
-</br> </br>
-
   <%= f.collection_select :conference_id, Conference.where("is_active == ?", true), :id, :conference_title %>
 
   <div class="actions">

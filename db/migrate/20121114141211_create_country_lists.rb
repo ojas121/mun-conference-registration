@@ -3,6 +3,7 @@ class CreateCountryLists < ActiveRecord::Migration
     create_table :country_lists do |t|
       t.integer :country_id
       t.integer :list_id
+      t.integer :school_id
 
       t.timestamps
     end
