@@ -64,6 +64,8 @@ class CountryListsController < ApplicationController
       if @country_list.update_attributes(params[:country_list])
         format.html { redirect_to @country_list, notice: 'Country list was successfully updated.' }
         format.json { head :no_content }
+        UserMailer.update_country_list_msg(@country_list).deliver
+
       else
         format.html { render action: "edit" }
         format.json { render json: @country_list.errors, status: :unprocessable_entity }

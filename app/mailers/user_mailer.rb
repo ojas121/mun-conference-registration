@@ -17,4 +17,9 @@ class UserMailer < ActionMailer::Base
       mail(:to => user.email, :subject => "Sing up confirmation")
     end
   
+def update_country_list_msg(country_list)
+     @country_list = country_list
+     mail(:to => country_list.school.email, :subject => "Your school has been assigned to a country.")
+   end
+
 end
