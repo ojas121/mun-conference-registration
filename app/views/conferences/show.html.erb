@@ -5,46 +5,59 @@
 <section id="conference">
   <div class="page-header">
     <div class="row-fluid">
-        <h1><%= @conference.conference_title %></h1>
-        <h3 style="color: #39b1c6;"><%= @conference.start_date.strftime('%B %e, %Y') %> - <%= @conference.end_date.strftime('%B %e, %Y') %></h3>
-        <p>Hosted by <%= @conference.host %></p>
+       
+	    <div class="span12 well">
+
+ <h1><%= @conference.conference_title %></h1>
+
+	 <h3 style="color: #39b1c6;"><%= @conference.start_date.strftime('%B %e, %Y') %> - <%= @conference.end_date.strftime('%B %e, %Y') %></h3>
+  <h4> Hosted by <%= @conference.host %> </h4>
+</div>
+<hr>
+
+	       <p>
+	          <%= link_to image_tag('edit.png'), edit_conference_path(@conference) %>&nbsp;&nbsp;<%= link_to 'Edit Conference', edit_conference_path(@conference) %>
+
+	          &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
+
+
+
+	          <%= link_to image_tag('trash.png'), @conference, confirm: 'Are you sure you want to delete this conference? This cannot be undone.', method: :delete %>&nbsp;&nbsp;<%= link_to 'Delete Conference', @conference, confirm: 'Are you sure you want to delete this conference? This cannot be undone.', method: :delete %>
+	        </p>
+	  </div>
+
+   </section>
+    
         
 
 	  <div class="row-fluid">
-	    <div class="span6 well">
-		<h3>Conference Description</h3>
+	    <div class="span12 well">
+		
+		<h4>Conference Description</h4>
 <p><%= @conference.conference_details %></p>
 </div></div>
 
 
-        <p class="well">
-          <%= link_to image_tag('edit.png'), edit_conference_path(@conference) %>&nbsp;&nbsp;<%= link_to 'Edit Conference', edit_conference_path(@conference) %>
-
-          &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
-
-
-
-          <%= link_to image_tag('trash.png'), @conference, confirm: 'Are you sure you want to delete this conference? This cannot be undone.', method: :delete %>&nbsp;&nbsp;<%= link_to 'Delete Conference', @conference, confirm: 'Are you sure you want to delete this conference? This cannot be undone.', method: :delete %>
-        </p>
-    </div>
-  </div>
+ 
 
   <div class="row-fluid">
     <div class="span6 well">
      
 
 
- <h3>Add committees to conference</h3>
- 	<table class="table table-bordered">
-	    <thead>
+ <h4>Add committees to conference</h4>
+
 		<th>  <%= render :partial => 'list_of_committees' %></th>
-	</table>
- <button class="btn"><%= link_to 'Create Committee', new_committee_path(@committee) %></button>
+
+
+ <div class="actions">
+	<button type="submit" class="btn"><%= link_to 'Create Committee', new_committee_path(@committee) %></button>
+ </div>
 
 
 </br></br>
 
-      <h3>Create country lists</h3>
+      <h4>Create country lists</h4>
 <p>
 	<%= render @conference.lists %>
 	<a href="#createlist" role="button" class="btn" data-toggle="modal"> Create List</a>
@@ -67,9 +80,19 @@
       <h3>Venue</h3>
       <p><%= @conference.venue %></p>
       <p><%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@conference.latitude}%2C#{@conference.longitude}" %></p>
+
     </div>
   </div>
 </section>
 
-<%= link_to 'Edit', edit_conference_path(@conference) %> |
-<%= link_to 'Back', conferences_path %>
+
+
+
+
+<ul class="pager">
+  <li>  <%= link_to 'Back to conferences list', conferences_path %> | </li>
+  <li>	<%= link_to 'Edit conference', edit_conference_path(@conference) %></li>
+</ul>
+
+
+

@@ -27,7 +27,12 @@
     <%= f.label :conference_id %>
     <%= f.collection_select :conference_id, Conference.all, :id, :conference_title %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+
+</br></br>
+
+<div class="actions">
+	<button type="submit" class="btn">Create committee</button>
   </div>
+
+
 <% end %>

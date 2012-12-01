@@ -1,17 +1,18 @@
 <p id="notice"><%= notice %></p>
-
+</br>
+<div class="span11 well">
 <p>
   <b>Committee name:</b>
   <%= @committee.committee_name %>
 </p>
 
 <p>
-  <b>Num delegates:</b>
+  <b>Number of delegates:</b>
   <%= @committee.num_delegates %>
 </p>
 
 <p>
-  <b>List:</b>
+  <b>Country list:</b>
   <% for country in @committee.list.countries %>
     <li><%= link_to((country.country_name), country_path(country)) %></li>
   <% end  %>
@@ -21,8 +22,11 @@
   <b>Conference:</b>
   <%= @committee.conference.conference_title %>
 </p>
+</div>
+
+<ul class="pager">
+  <li>	<%= link_to 'Edit committee', edit_committee_path(@committee) %> |</li>
+  <li><%= link_to 'Back to committees list', committees_path %></li>
+</ul>
 
 
-
-<%= link_to 'Edit', edit_committee_path(@committee) %> |
-<%= link_to 'Back', committees_path %>

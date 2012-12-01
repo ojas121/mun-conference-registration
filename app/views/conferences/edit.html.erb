@@ -1,6 +1,12 @@
-<h1>Editing conference</h1>
+<h3>Edit conference</h3>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @conference %> |
-<%= link_to 'Back', conferences_path %>
+
+
+
+
+<ul class="pager">
+  <li><%= link_to 'Show conference', @conference %> |</li>
+  <li><%= link_to 'Back to conferences list', conferences_path %></li>
+</ul>
