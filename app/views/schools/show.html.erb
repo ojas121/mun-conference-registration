@@ -35,8 +35,9 @@
  -->
 <b>Delegates:</b>
 <%= render @school.delegates %>
-
+<% if @school.countries == nil %>
 <a href="#createdelegate" role="button" class="btn" data-toggle="modal">Create New Delegate</a>
+<% end %>
 
 
 <div id="createdelegate" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
