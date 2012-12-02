@@ -12,17 +12,18 @@
     </div>
   <% end %>
 
+
   <div class="field">
     <%= f.label :conference_title %>
     <%= f.text_field :conference_title %>
   </div>
   <div class="field">
     <%= f.label :start_date %>
-    <%= f.date_select :start_date %>
+    <%= f.text_field :start_date, :placeholder => "dd/mm/yyyy", :databehaviour => "datepicker"%>
   </div>
   <div class="field">
     <%= f.label :end_date %>
-    <%= f.date_select :end_date %>
+    <%= f.text_field :end_date, :placeholder => "dd/mm/yyyy", :databehaviour => "datepicker"%>
   </div>
   <div class="field">
     <%= f.label :host %>
