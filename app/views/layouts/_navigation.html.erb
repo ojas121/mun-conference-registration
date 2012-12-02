@@ -1,12 +1,40 @@
+<script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-dropdown.js"></script>
+
+
+<ul class="nav pull-left form-inline">
+
+<%= image_tag("logo.gif", :alt => "logo", :size => "200x120") %>
+</ul>
+</br></br>
+
+
+
+<ul class="nav pull-center form-inline">
 <%= link_to "THIMUN Qatar Online Registration", root_path, :class => 'brand' %>
-<ul class="nav">
+</ul>
+
+
+<ul class="nav pull-right form-inline">
   <% if user_signed_in? %>
-    <li>
-    <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %>        
-    </li>
+
   <% else %>
     <li>
     <%= link_to('Login', new_user_session_path)  %>  
     </li>
   <% end %>
+
+
+
+
+<div class="btn-group">
+  <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+    Profile
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+  <button class="btn pull-center "> <%= link_to('Logout', destroy_user_session_path, :method=>'delete') %></button> 				 
+  </ul>
+</div>
+
+
 </ul>
