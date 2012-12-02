@@ -38,7 +38,7 @@
   </div>
   <div class="field">
     <%= f.label :assign_conference_manager %>
-    <%= f.collection_select :user_id, User.with_role("Conference Manager"), :id, :user_name %>
+    <%= f.collection_select :user_id, User.with_role("Conference Manager"), :id, :fullname %>
   </div>
   <div class="field">
     <%= f.label :is_active %>

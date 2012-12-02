@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>List:</b>
+  <%= @delegation_assignment.list.list_name %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%= @delegation_assignment.country.country_name %>
+</p>
+
+<p>
+  <b>School:</b>
+  <%= @delegation_assignment.school.school_name %>
+</p>
+
+<p>
+  <b>Conference:</b>
+  <%= @delegation_assignment.conference %>
+</p>
+
+
+<%= link_to 'Edit', edit_delegation_assignment_path(@delegation_assignment) %> |
+<%= link_to 'Back', delegation_assignments_path %>

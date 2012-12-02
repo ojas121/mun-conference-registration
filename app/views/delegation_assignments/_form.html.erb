@@ -1,0 +1,19 @@
+<%= form_for(@delegation_assignment) do |f| %>
+
+  <div class="field">
+    <%= f.label :list_id %><br />
+    <%= @delegation_assignment.list.list_name %>
+  </div>
+  <div class="field">
+    <%= f.label :country_id %><br />
+    <%= @delegation_assignment.country.country_name %>
+  </div>
+  <div class="field">
+    <%= f.label :school_id %><br />
+    <%= f.collection_select :school_id, School.all, :id, :school_name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

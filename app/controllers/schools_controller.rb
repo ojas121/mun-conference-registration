@@ -49,23 +49,23 @@ class SchoolsController < ApplicationController
 
   # POST /schools
   # POST /schools.json
-  def create
-  #  @school = School.new(params[:school])
+  # def create
+  # #  @school = School.new(params[:school])
 
-    respond_to do |format|
-      if @school.save
-        format.html { redirect_to @school, notice: 'School was successfully created.' }
-        format.json { render json: @school, status: :created, location: @school }
+  #   respond_to do |format|
+  #     if @school.save
+  #       format.html { redirect_to @school, notice: 'School was successfully created.' }
+  #       format.json { render json: @school, status: :created, location: @school }
         
-        # Provide a email confirmation if all is good...
-		    UserMailer.new_school_msg(@school).deliver
+  #       # Provide a email confirmation if all is good...
+		#     UserMailer.new_school_msg(@school).deliver
         
-      else
-        format.html { render action: "new" }
-        format.json { render json: @school.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  #     else
+  #       format.html { render action: "new" }
+  #       format.json { render json: @school.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # PUT /schools/1
   # PUT /schools/1.json
@@ -85,13 +85,26 @@ class SchoolsController < ApplicationController
 
   # DELETE /schools/1
   # DELETE /schools/1.json
-  def destroy
-  #  @school = School.find(params[:id])
-    @school.destroy
+  # def destroy
+  # #  @school = School.find(params[:id])
+  #   @school.destroy
 
-    respond_to do |format|
-      format.html { redirect_to schools_url }
-      format.json { head :no_content }
-    end
+  #   respond_to do |format|
+  #     format.html { redirect_to schools_url }
+  #     format.json { head :no_content }
+  #   end
+  # end
+
+  def create
+    @conference = Conference.find(params[:conference_id])
+    @school = @conference.schools.create(params[:school])
+    redirect_to conference_path(@conference)
+  end
+
+  def destroy
+    @conference = Conference.find(params[:conference_id])
+    @school = @conference.schools.find(params[:id])
+    @school.destroy
+    redirect_to conference_path(@conference)
   end
 end

@@ -1,5 +1,7 @@
 I3s::Application.routes.draw do
 
+  resources :delegation_assignments
+
   resources :roles
 
   resources :lists
@@ -26,10 +28,13 @@ I3s::Application.routes.draw do
 
   resources :conferences do
     resources :lists
+    resources :committees
+    resources :schools
+    resources :delegation_assignments
   end
 
   match 'requestaccess' => 'requestaccess#new', :as => 'requestaccess', :via => :get
-match 'requestaccess' => 'requestaccess#create', :as => 'requestaccess', :via => :post
+  match 'requestaccess' => 'requestaccess#create', :as => 'requestaccess', :via => :post
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

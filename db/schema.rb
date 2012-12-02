@@ -11,14 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121129145543) do
-
-  create_table "committee_schools", :force => true do |t|
-    t.integer  "committee_id"
-    t.integer  "school_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
+ActiveRecord::Schema.define(:version => 20121202094958) do
 
   create_table "committees", :force => true do |t|
     t.string   "committee_name"
@@ -28,6 +21,8 @@ ActiveRecord::Schema.define(:version => 20121129145543) do
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
+
+  add_index "committees", ["conference_id"], :name => "index_committees_on_conference_id"
 
   create_table "conferences", :force => true do |t|
     t.string   "conference_title"
@@ -53,23 +48,6 @@ ActiveRecord::Schema.define(:version => 20121129145543) do
     t.integer "school_id"
   end
 
-  create_table "country_lists", :force => true do |t|
-    t.integer  "country_id"
-    t.integer  "list_id"
-    t.integer  "school_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "delegate_assignments", :force => true do |t|
-    t.integer  "delegate_id"
-    t.integer  "country_id"
-    t.integer  "committee_id"
-    t.integer  "conference_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
   create_table "delegates", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -84,6 +62,17 @@ ActiveRecord::Schema.define(:version => 20121129145543) do
   end
 
   add_index "delegates", ["school_id"], :name => "index_delegates_on_school_id"
+
+  create_table "delegation_assignments", :force => true do |t|
+    t.integer  "list_id"
+    t.integer  "country_id"
+    t.integer  "school_id"
+    t.integer  "conference_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "delegation_assignments", ["conference_id"], :name => "index_delegation_assignments_on_conference_id"
 
   create_table "lists", :force => true do |t|
     t.string   "list_name"
@@ -111,11 +100,13 @@ ActiveRecord::Schema.define(:version => 20121129145543) do
     t.string   "school_address"
     t.string   "email"
     t.integer  "max_students"
+    t.integer  "user_id"
     t.integer  "conference_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
-    t.integer  "user_id"
   end
+
+  add_index "schools", ["conference_id"], :name => "index_schools_on_conference_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

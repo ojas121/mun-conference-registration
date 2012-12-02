@@ -1,15 +1,4 @@
-<%= form_for(@school) do |f| %>
-  <% if @school.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@school.errors.count, "error") %> prohibited this school from being saved:</h2>
-
-      <ul>
-      <% @school.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form_for([@conference, @conference.schools.build]) do |f| %>
 
   <div class="field">
     <%= f.label :school_name %>
@@ -31,8 +20,6 @@
     <%= f.label :max_students %>
     <%= f.number_field :max_students %>
   </div>
-
-  <%= f.collection_select :conference_id, Conference.where("is_active == ?", true), :id, :conference_title %>
 
   <div class="actions">
 	<button type="submit" class="btn">Create school</button>

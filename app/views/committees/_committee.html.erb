@@ -1,0 +1,5 @@
+<p>
+  <strong>Committee:</strong>
+  <%= committee.committee_name %>
+  <%= link_to 'Remove', [committee.conference, committee], :confirm => 'Really remove committee?', :method => :delete %>
+</p>

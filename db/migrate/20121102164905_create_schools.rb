@@ -5,9 +5,11 @@ class CreateSchools < ActiveRecord::Migration
       t.string :school_address
       t.string :email
       t.integer :max_students
-      t.integer :conference_id
+      t.integer :user_id
+      t.references :conference
     
       t.timestamps
     end
+    add_index :schools, :conference_id
   end
 end

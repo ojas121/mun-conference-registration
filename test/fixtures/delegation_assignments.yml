@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  list_id: 1
+  country_id: 1
+  school_id: 1
+  conference: 
+
+two:
+  list_id: 1
+  country_id: 1
+  school_id: 1
+  conference: 

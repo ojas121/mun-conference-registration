@@ -1,4 +1,9 @@
 class Role < ActiveRecord::Base
-	has_and_belongs_to_many :users
+
+	#Attributes
 	attr_accessible :name
+
+	#Relationships
+	has_and_belongs_to_many :users
+	
 end

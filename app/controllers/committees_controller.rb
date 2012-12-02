@@ -47,19 +47,19 @@ class CommitteesController < ApplicationController
 
   # POST /committees
   # POST /committees.json
-  def create
-  #  @committee = Committee.new(params[:committee])
+  # def create
+  # #  @committee = Committee.new(params[:committee])
 
-    respond_to do |format|
-      if @committee.save
-        format.html { redirect_to @committee, notice: 'Committee was successfully created.' }
-        format.json { render json: @committee, status: :created, location: @committee }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @committee.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  #   respond_to do |format|
+  #     if @committee.save
+  #       format.html { redirect_to @committee, notice: 'Committee was successfully created.' }
+  #       format.json { render json: @committee, status: :created, location: @committee }
+  #     else
+  #       format.html { render action: "new" }
+  #       format.json { render json: @committee.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # PUT /committees/1
   # PUT /committees/1.json
@@ -79,13 +79,26 @@ class CommitteesController < ApplicationController
 
   # DELETE /committees/1
   # DELETE /committees/1.json
-  def destroy
-  #  @committee = Committee.find(params[:id])
-    @committee.destroy
+  # def destroy
+  # #  @committee = Committee.find(params[:id])
+  #   @committee.destroy
 
-    respond_to do |format|
-      format.html { redirect_to committees_url }
-      format.json { head :no_content }
-    end
+  #   respond_to do |format|
+  #     format.html { redirect_to committees_url }
+  #     format.json { head :no_content }
+  #   end
+  # end
+
+  def create
+    @conference = Conference.find(params[:conference_id])
+    @committee = @conference.committees.create(params[:committee])
+    redirect_to conference_path(@conference)
+  end
+
+  def destroy
+    @conference = Conference.find(params[:conference_id])
+    @committee = @conference.committees.find(params[:id])
+    @committee.destroy
+    redirect_to conference_path(@conference)
   end
 end

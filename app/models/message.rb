@@ -3,11 +3,14 @@ class Message
   include ActiveModel::Conversion
   extend ActiveModel::Naming
 
+  #Attributes
   attr_accessor :school_name, :first_name, :last_name, :email, :nationality, :gender, :details
 
-  #validates :school_name, :email, :subject, :body, :presence => true
+  #Validations
+  validates :school_name, :first_name, :last_name, :email, :nationality, :gender, :presence => true
   validates :email, :format => { :with => %r{.+@.+\..+} }, :allow_blank => false
   
+  #Methods
   def initialize(attributes = {})
     attributes.each do |name, value|
       send("#{name}=", value)
@@ -17,4 +20,5 @@ class Message
   def persisted?
     false
   end
+  
 end

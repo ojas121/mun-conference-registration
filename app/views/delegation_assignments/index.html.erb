@@ -35,31 +35,43 @@
 <br/></br/></br/>
 
 <div class="well form-inline">
-  <h2>Users</h2>
-  <button class="btn pull-left form-inline"><%= link_to 'New User', new_user_path %></button>
+  <h2>Delegation Assignments</h2>
   <br/>
 </div>
 
 <table class="table table-striped">
   <thead>
     <tr>
-      <th>Email</th>
-      <th>Full Name</th>
-      <th>Role</th>
+      <th>List</th>
+      <th>Country</th>
+      <th>School</th>
+      <th>Conference</th>
+      <th></th>
+      <th></th>
+      <th></th>
     </tr>
+  </thead>
 
-  <% @users.each do |user| %>
+  <tbody>
+    <% @delegation_assignments.each do |delegation_assignment| %>
     <tr>
-      <td><%= user.email %></td>
-      <td><%= user.fullname %></td>
-      <td><%= user.roles[0].name %></td>
-      <td><%= link_to 'Show', user %></td>
-      <td><%= link_to 'Edit', edit_user_path(user) %></td>
-      <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= delegation_assignment.list_id %></td>
+      <td><%= delegation_assignment.country.country_name %></td>
+      <td>
+        <% if delegation_assignment.school_id == nil %>
+          <%= link_to 'Assign School', edit_delegation_assignment_path(delegation_assignment) %>
+        <% else %>
+          <%= delegation_assignment.school.school_name %>
+        <% end %>
+      </td>
+      <td><%= delegation_assignment.conference %></td>
+      <td><%= link_to 'Show', delegation_assignment %></td>
+      <td><%= link_to 'Edit', edit_delegation_assignment_path(delegation_assignment) %></td>
+      <td><%= link_to 'Destroy', delegation_assignment, confirm: 'Are you sure?', method: :delete %></td>
     </tr>
-  <% end %>
+    <% end %>
+  </tbody>
 </table>
 
 <br />
-
-<%= link_to 'New user', new_user_path %>
+<p ALIGN="RIGHT"> <i class="icon-chevron-up"></i> <a href="#top">Go to Top</a></p>
