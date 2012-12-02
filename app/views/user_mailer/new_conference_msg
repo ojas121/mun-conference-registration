@@ -1,6 +1,8 @@
 Dear <%= @conference.user.fullname %>,
-<br/>
-You have been assigned as the Conference Manager for <%= @conference.conference_title %>. Please login to your account so that you can complete your next steps:
+<br/><br/>
+You have been assigned as the Conference Manager for <%= @conference.conference_title %>.
+<br/><br/>
+Please login to your account so that you can complete your next steps:
 <br/>
 <ol>
 <li>Country Lists: Create country lists for the conference</li>
@@ -10,5 +12,5 @@ You have been assigned as the Conference Manager for <%= @conference.conference_
 </ol>
 <br/>
 Thank you!
-<br/>
+<br/><br/>
 MUN Online Conference Registration Team

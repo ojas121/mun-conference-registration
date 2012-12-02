@@ -1,0 +1,14 @@
+Dear <%= @delegation_assignment.school.user.fullname %>,
+<br/><br/>
+You have been accepted to participate in the <%= @delegation_assignment.school.conference.conference_title %> conference.
+<br/><br/>
+Please login to your account so that you can complete your next steps:
+<br/>
+<ol>
+<li>Countries: View countries assigned to your school</li>
+<li>Delegates: Add delegates' information</li>
+</ol>
+<br/>
+Thank you!
+<br/><br/>
+MUN Online Conference Registration Team

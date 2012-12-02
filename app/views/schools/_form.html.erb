@@ -11,15 +11,11 @@
   </div>
 
   <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-
-  <%= f.hidden_field :email, :value => current_user.email %>
-  <div class="field">
     <%= f.label :max_students %>
     <%= f.number_field :max_students %>
   </div>
+
+  <%= f.hidden_field :user_id, :value => current_user.id %>
 
   <div class="actions">
 	<button type="submit" class="btn">Create school</button>

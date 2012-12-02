@@ -1,6 +1,7 @@
-Dear <%= @school.school_name %>,
-
-Your school has been accepted to participate in the conference. 
-Soon, your school's MUN Director will be notified via email. 
-
-Thank you! 
+Dear <%= @school.user.fullname %>,
+<br/><br/>
+Your request for registration for the <%= @school.conference.conference_title %> conference has been received. You will be notified when we have completed processing your request via email. 
+<br/><br/>
+Thank you!
+<br/><br/>
+MUN Online Conference Registration Team
