@@ -10,7 +10,7 @@
 
 
 <ul class="nav pull-center form-inline">
-<%= link_to "THIMUN Qatar Online Registration", root_path, :class => 'brand' %>
+<%= link_to "MUN Online Conference Registration", root_path, :class => 'brand' %>
 </ul>
 
 
@@ -28,7 +28,7 @@
 
 <div class="btn-group">
   <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-    Profile
+    <%= current_user.email %>
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu">

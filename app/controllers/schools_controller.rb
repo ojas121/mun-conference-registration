@@ -99,6 +99,7 @@ class SchoolsController < ApplicationController
     @conference = Conference.find(params[:conference_id])
     @school = @conference.schools.create(params[:school])
     redirect_to conference_path(@conference)
+    UserMailer.new_school_msg(@school).deliver
   end
 
   def destroy

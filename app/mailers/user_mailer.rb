@@ -7,9 +7,9 @@ class UserMailer < ActionMailer::Base
     mail(:to => school.email, :subject => "Conference Participation Confirmation")
   end
 
-  def update_country_list_msg(country_list)
-    @country_list = country_list
-    mail(:to => country_list.school.email, :subject => "Countries have been assigned to your school")
+  def update_delegation_assignment_msg(delegation_assignment)
+    @delegation_assignment = delegation_assignment
+    mail(:to => delegation_assignment.school.email, :subject => "Countries have been assigned to your school")
   end
 
   def new_conference_msg(conference)

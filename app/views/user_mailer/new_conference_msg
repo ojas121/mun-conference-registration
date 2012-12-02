@@ -1,0 +1,14 @@
+Dear <%= @conference.user.fullname %>,
+<br/>
+You have been assigned as the Conference Manager for <%= @conference.conference_title %>. Please login to your account so that you can complete your next steps:
+<br/>
+<ol>
+<li>Country Lists: Create country lists for the conference</li>
+<li>Committees: Create committees with country lists</li>
+<li>MUN Directors: Create accounts for MUN Directors</li>
+<li>Delegation Assignments: Assign schools to countries</li>
+</ol>
+<br/>
+Thank you!
+<br/>
+MUN Online Conference Registration Team

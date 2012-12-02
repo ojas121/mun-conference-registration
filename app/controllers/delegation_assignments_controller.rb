@@ -62,6 +62,7 @@ class DelegationAssignmentsController < ApplicationController
       if @delegation_assignment.update_attributes(params[:delegation_assignment])
         format.html { redirect_to @delegation_assignment, notice: 'Delegation assignment was successfully updated.' }
         format.json { head :no_content }
+        UserMailer.new_delegation_assignment_msg(@delegation_assignment).deliver
       else
         format.html { render action: "edit" }
         format.json { render json: @delegation_assignment.errors, status: :unprocessable_entity }

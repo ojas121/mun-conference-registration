@@ -12,6 +12,12 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= f.label :assign_conference_manager %>
+    <%= f.collection_select :user_id, User.with_role("Conference Manager"), :id, :fullname %>
+  </div>
+  <%= link_to "Add Conference Manager", new_user_path(@user) %>
+
 
   <div class="field">
     <%= f.label :conference_title %>
@@ -36,10 +42,6 @@
   <div class="field">
     <%= f.label :conference_details %>
     <%= f.text_area :conference_details %>
-  </div>
-  <div class="field">
-    <%= f.label :assign_conference_manager %>
-    <%= f.collection_select :user_id, User.with_role("Conference Manager"), :id, :fullname %>
   </div>
   <div class="field">
     <%= f.label :is_active %>
