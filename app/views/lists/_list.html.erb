@@ -1,6 +1,6 @@
 <table class="table table-bordered">
 	<thead>
-		<th><%= link_to list.list_name, list_path(@list) %></th>
+		<th><%= link_to list.list_name, list_path(list) %></th>
 		<td><%= link_to image_tag('trash.png'),  [list.conference, list], confirm: 'Are you sure you want to remove this list? This cannot be undone.', method: :delete %></td>
 	</thead>
 </table>
