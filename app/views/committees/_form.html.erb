@@ -1,9 +1,22 @@
+<section id="forms">
+
+
+	<div class="row">
+		<div class="span8 offset2">
+			<div class="form-horizontal well">
+				
+
+
 <%= form_for([@conference, @conference.committees.build]) do |f| %>
 
-  <div class="field">
-    <%= f.label :committee_name %>
+  	<div class="control-group">
+    <%= f.label :committee_name , :class => "control-label"  %>
+<div class="controls">
     <%= f.text_field :committee_name %>
   </div>
+</div>
+
+
   <div class="field">
     <%= f.label :Number_of_delegates %>
     <%= f.number_field :num_delegates %>
@@ -21,3 +34,11 @@
 
 
 <% end %>
+
+
+		</div>
+	</div>
+</div>
+</section>
+
+

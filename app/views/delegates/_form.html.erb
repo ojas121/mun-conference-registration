@@ -1,3 +1,14 @@
+
+<section id="forms ">
+
+
+	<div class="row">
+		<div class="span6 offset2 pull-left">
+			<div class="form-horizontal well">
+				
+
+
+
 <%= form_for([@school, @school.delegates.build]) do |f| %>
 
   <div class="field">
@@ -16,24 +27,38 @@
       </div>
     </div>
 
-  <div class="field">
-    <%= f.label :date_of_birth %>
-    <%= f.date_select :date_of_birth, :start_year => Time.now.year - 70, :end_year => Time.now.year - 12 %>
+
+
+<div class="control-group">
+    <%= f.label :date_of_birth , :class => "control-label" %>
+	<div class="controls">
+    <%= f.text_field :date_of_birth, :placeholder => "dd/mm/yyyy", :databehaviour => "datepicker"%>
   </div>
+</div>
+
+
   <div class="field">
     <%= f.label :nationality %>
     <%= f.text_field :nationality %>
   </div>
   <div class="field">
     <%= f.label :country %>
-    <%= f.collection_select :country_id, @school.countries, :id, :country_name %>
+    <%= f.collection_select :country_id, Country.btaschool(@school), :id, :country_name %>
   </div>
   <div class="field">
     <%= f.label :committee %>
-    <%= f.collection_select :committee_id, @school.countries[0].lists[0].committees, :id, :committee_name %>
+    <%= f.collection_select :committee_id, Committee.btalist(List.btacountry(Country.btaschool(@school))), :id, :committee_name %>
   </div>
   <div class="actions">
 	<button type="submit" class="btn">Create delegate</button>
   </div>
 
 <% end %>
+
+
+		</div>
+	</div>
+</div>
+</section>
+
+

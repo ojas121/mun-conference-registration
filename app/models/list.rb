@@ -11,5 +11,6 @@ class List < ActiveRecord::Base
 
 	#Scopes
 	scope :btaconference, lambda{ |btaconference| joins(:conference).where(:conferences => {:conference_title => btaconference}) }
+	scope :btacountry, lambda{ |btacountry| joins(:countries).where(:countries => {:id => btacountry}) }
 
 end

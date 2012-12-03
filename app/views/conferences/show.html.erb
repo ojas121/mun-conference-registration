@@ -4,7 +4,18 @@
 <!--when click on conference name-->
 <section id="conference">
   <div class="page-header">
+	
+			<ul class="breadcrumb">
+			<li> <%= link_to "Home", conferences_path %>  <span class="divider">/</span></li>
+			  <li> <%= link_to "Conferences List", conferences_path %>  <span class="divider">/</span></li>
+			  <li class="active"> <%= @conference.conference_title %> </li>
+			</ul>
+	<hr>
+	
     <div class="row-fluid">
+
+
+	
 
       <div class="span12 well">
         <h1><%= @conference.conference_title %></h1>
@@ -12,12 +23,14 @@
         <h4>Hosted by <%= @conference.host %></h4>
       </div>
 
-      <hr>
+
+
 
       <p><%= link_to image_tag('edit.png'), edit_conference_path(@conference) %>&nbsp;&nbsp;<%= link_to 'Edit Conference', edit_conference_path(@conference) %>
         &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
         <%= link_to image_tag('trash.png'), @conference, confirm: 'Are you sure you want to delete this conference? This cannot be undone.', method: :delete %>&nbsp;&nbsp;<%= link_to 'Delete Conference', @conference, confirm: 'Are you sure you want to delete this conference? This cannot be undone.', method: :delete %>
       </p>
+
     </div>
   </div>
 
@@ -30,7 +43,7 @@
 
   <div class="row-fluid">
     <div class="span6 well">
-      <br/><br/>
+      
       <h4>Create country lists</h4>
       <p>
         <%= render @conference.lists %>
@@ -38,6 +51,8 @@
       </p>
 
       <div id="createlist" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+	
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
           <h3 id="myModalLabel">Add Country List</h3>
@@ -47,10 +62,10 @@
         </div>
       </div>
 
-      <h4>Create committee</h4>
+      <h4>Add committee</h4>
       <p>
         <%= render @conference.committees %>
-        <a href="#createcommittee" role="button" class="btn" data-toggle="modal">Create Committee</a>
+        <a href="#createcommittee" role="button" class="btn" data-toggle="modal">Add Committee</a>
       </p>
 
       <div id="createcommittee" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -63,22 +78,31 @@
         </div>
       </div>
 
-      <h4>Create school</h4>
+      <h4>Register school</h4>
       <p>
         <%= render @conference.schools %>
-        <a href="#createschool" role="button" class="btn" data-toggle="modal">Create School</a>
+        <a href="#createschool" role="button" class="btn" data-toggle="modal">Register School</a>
       </p>
 
       <div id="createschool" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h3 id="myModalLabel">Add School</h3>
+          <h3 id="myModalLabel">Register School</h3>
         </div>
         <div class="modal-body">
           <%= render 'schools/form' %>
         </div>
       </div>
+
+	  <h4>Assign Delegates</h4>
+
+  <li> <%= link_to "Assign delegates to committees", schools_path %>  </li>
+
+
     </div>
+
+
+    
 
     <div class="span6 well">
       <h3>Venue</h3>
@@ -90,7 +114,7 @@
 </section>
 
 
-
+<hr>
 
 
 <ul class="pager">

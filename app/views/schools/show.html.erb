@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+</br>
+
+<div class="span11 well">
+
 <p>
   <b>School name:</b>
   <%= @school.school_name %>
@@ -34,7 +38,8 @@
 </p>
  -->
 <b>Delegates:</b>
-<%= render @school.delegates %>
+</br></br>
+<li> <%= render @school.delegates %></li>
 <% if @school.countries != nil %>
 <a href="#createdelegate" role="button" class="btn" data-toggle="modal">Create New Delegate</a>
 <% end %>
@@ -50,7 +55,16 @@
   </div>
 </div>
 
+</div>
 
 
-<%= link_to 'Edit', edit_school_path(@school) %> |
-<%= link_to 'Back', schools_path %>
+
+
+
+
+<ul class="pager">
+  <li><%= link_to 'Edit', edit_school_path(@school) %> |</li>
+  <li><%= link_to 'Back', schools_path %></li>
+</ul>
+
+
