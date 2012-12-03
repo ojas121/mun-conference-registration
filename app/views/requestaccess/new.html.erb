@@ -1,38 +1,62 @@
-<%= form_for @message, :url => contact_path do |form| %>
-  <fieldset class="fields">
-    <div class="field">
-      <%= form.label :school_name %>
+    <div class="container" style="padding-left:20px; padding-right:20px;">
+
+<section id="forms" style="padding-top:70px;">
+    <div class="span7 offset2">
+      <div class="form-horizontal well">
+
+<%= form_for @message, :url => requestaccess_path do |form| %>
+<legend>Request Access</legend>
+    <div class="control-group">
+      <%= form.label :school_name, :class => "control-label" %>
+      <div class="controls">
       <%= form.text_field :school_name %>
     </div>
-    <div class="field">
-      <%= form.label :first_name %>
+    </div>
+    <div class="control-group">
+      <%= form.label :first_name, :class => "control-label" %>
+      <div class="controls">
       <%= form.text_field :first_name %>
     </div>
-    <div class="field">
-      <%= form.label :last_name %>
+    </div>
+    <div class="control-group">
+      <%= form.label :last_name, :class => "control-label" %>
+      <div class="controls">
       <%= form.text_field :last_name %>
     </div>
-    <div class="field">
-      <%= form.label :email %>
-      <%= form.text_area :email %>
     </div>
-    <div class="field">
-      <%= form.label :nationality %>
-      <%= form.text_area :nationality %>
+    <div class="control-group">
+      <%= form.label :email, :class => "control-label" %>
+      <div class="controls">
+      <%= form.text_field :email %>
     </div>
-    <div class="field">
-      <%= form.label :gender %>
-      <%= form.text_area :gender %>
     </div>
-    <div class="field">
-      <%= form.label :details %>
-      <%= form.text_area :details %>
+    <div class="control-group">
+      <%= form.label :nationality, :class => "control-label" %>
+      <div class="controls">
+      <%= form.text_field :nationality %>
+    </div>
+    </div>
+    <div class="control-group">
+      <%= form.label :gender, :class => "control-label" %>
+      <div class="controls">
+      <%= form.select :gender, ['Male', 'Female'] %>
+    </div>
+    </div>
+    <div class="control-group">
+      <%= form.label :additional_details, :class => "control-label" %>
+      <div class="controls">
+      <%= form.text_field :details %>
+    </div>
     </div>
 
-    <fieldset class="actions">
-      <%= form.submit "Send" %>
-    </fieldset>
+    <div class="control-group">
+      <div class="controls">
+      <%= form.submit "Request Access", :class => "btn btn-primary"%>
+      <%= link_to "Cancel", :back, :class => "btn" %>
+    </div>
+    </div>
+    
 <% end %>
 
-
+</div>
 

@@ -1,3 +1,5 @@
+<div class="container" style="padding-left:20px; padding-right:20px; background-color:white;">
+
 <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-dropdown.js"></script>
 
 <ul class="nav nav-tabs">
@@ -33,9 +35,7 @@
 </ul>
 
 <div>
-	<%= form_for @search, :url => schools_path, :html => {:method => :get} do |f| %>
-		<%= f.text_field :school_name_contains, :class => "navbar-search pull-right form-inline input-medium search-query", :placeholder => "Search" %>
-	<% end %>
+
 </div>
 
 <br/></br/></br/>
@@ -81,3 +81,4 @@
 
 <p ALIGN="RIGHT"> <i class="icon-download-alt"></i> Export to <a href="http://localhost:3000/schools.xls"> excel</a> </p>
 <p ALIGN="RIGHT"> <i class="icon-chevron-up"></i> <a href="#top">Back to Top</a></p>
+</div>

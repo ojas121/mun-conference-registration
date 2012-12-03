@@ -1,6 +1,6 @@
 <section id="forms">
 	<div class="page-header">
-		<h2>Create an Account</h2>
+		<h2>Account Confirmation</h2>
 	</div>
 
 	<div class="row">
@@ -10,7 +10,7 @@
 			<%= form_for(resource, :as => resource_name, :url => confirm_path) do |f| %>
 			<%= devise_error_messages! %>
 
-			<legend>You're almost done! Now create a password to securely access your account.</legend>
+			<legend>You're almost done!<br/><p style="font-size: 16px; line-height: 1.8em; color: #888888;">Now enter your details and create a password to securely access your account.</p></legend>
 
 			<div class="control-group">
 				<%= f.label :first_name, :class => "control-label" %>
