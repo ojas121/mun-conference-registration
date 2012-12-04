@@ -1,6 +1,9 @@
-<h1>Editing delegation_assignment</h1>
+  <legend>Edit delegation assignments</legend>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @delegation_assignment %> |
-<%= link_to 'Back', delegation_assignments_path %>
+<ul class="pager">
+  <li>  <%= link_to 'Back to delegation assignments', delegation_assignments_path %></li>
+    <li>  <%= link_to 'Edit to delegation assignments', edit_delegation_assignment_path(@delegation_assignment)  %></li>
+</ul>
+

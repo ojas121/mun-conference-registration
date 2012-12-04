@@ -1,19 +1,39 @@
+   <div class="span12 well">
+
 <%= form_for(@delegation_assignment) do |f| %>
 
-  <div class="field">
-    <%= f.label :list_id %><br />
+<div class="control-group">
+    <%= f.label :list_id , :class => "control-label"%>
+    		<div class="controls">
     <%= @delegation_assignment.list.list_name %>
   </div>
-  <div class="field">
-    <%= f.label :country_id %><br />
+</div>
+  
+  
+  
+<div class="control-group">
+    <%= f.label :country_id , :class => "control-label"%>
+        		<div class="controls">
     <%= @delegation_assignment.country.country_name %>
   </div>
-  <div class="field">
-    <%= f.label :school_id %><br />
+  </div>
+  
+  
+  
+<div class="control-group">
+    <%= f.label :school_id , :class => "control-label"  %>
+    	<div class="controls">
     <%= f.collection_select :school_id, School.all, :id, :school_name %>
   </div>
+  </div>
+  
+  
 
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+    </div>
+
+
