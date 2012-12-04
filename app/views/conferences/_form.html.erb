@@ -1,12 +1,9 @@
+<div class="container">
 
 <section id="forms">
-
-
-	<div class="row">
-		<div class="span8 offset2">
-			<div class="form-horizontal well">
-				
-				
+    <div class="span7 offset2">
+      <%= render 'layouts/messages' %>
+      <div class="form-horizontal well">				
 <%= form_for(@conference) do |f| %>
   <% if @conference.errors.any? %>
     <div id="error_explanation">
@@ -21,14 +18,16 @@
     </div>
   <% end %>
 
+  <legend>Conference Details</legend>
+
 	<div class="control-group">
     <%= f.label :assign_conference_manager , :class => "control-label" %>
 		<div class="controls">
     <%= f.collection_select :user_id, User.with_role("Conference Manager"), :id, :fullname %>
+    <p class="help-block">(or add a <%= link_to "new Conference Manager", new_user_path(@user) %>)</p>
   		</div>
 </div>
 
-<p> Or add <%= link_to "a new Conference Manager", new_user_path(@user) %> </p>
 
 
 <div class="control-group">
@@ -57,7 +56,7 @@
 
 
 <div class="control-group">
-    <%= f.label :host , :class => "control-label" %>
+    <%= f.label :host_school_or_organization, :class => "control-label" %>
 	<div class="controls">
 
     <%= f.text_field :host %>
@@ -89,22 +88,27 @@
 <div class="control-group">
     <%= f.label :Conference_Status , :class => "control-label" %>
 	<div class="controls">
-    <%= f.check_box :is_active %>
+    <label class="checkbox">
+    <%= f.check_box :is_active, :id=>"optionsCheckbox" %>Active
+  </label>
   </div>
 </div>
 
 
 
 </br>
-<div class="actions">
-	<button type="submit" class="btn">Create conference</button>
-</div>
+<div class="control-group">
+            <div class="controls">
+              <%= f.submit "Create Conference", :class => "btn btn-primary"%>
+              <%= link_to "Cancel", root_path, :class => "btn" %>
+            </div>
+          </div>
+
 <% end %>
 
-		</div>
-	</div>
 </div>
-
+    </div>
+  </div>
 </section>
 
 

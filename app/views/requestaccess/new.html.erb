@@ -1,11 +1,13 @@
-    <div class="container" style="padding-left:20px; padding-right:20px;">
+<div class="container" style="padding-top:70px;">
 
-<section id="forms" style="padding-top:70px;">
+<section id="forms">
     <div class="span7 offset2">
+      <%= render 'layouts/messages' %>
       <div class="form-horizontal well">
 
 <%= form_for @message, :url => requestaccess_path do |form| %>
-<legend>Request Access</legend>
+<legend>Request Access<br/><p style="font-size: 16px; line-height: 1.8em; color: #888888;">Please fill in this form and we will get back to you soon.</p></legend>
+
     <div class="control-group">
       <%= form.label :school_name, :class => "control-label" %>
       <div class="controls">

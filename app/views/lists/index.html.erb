@@ -2,45 +2,43 @@
 
 <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-dropdown.js"></script>
 
-<ul class="nav nav-tabs">
-	<li class="dropdown">
-		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-			Users
-			<b class="caret"></b>
-		</a>
-
-		<ul class="dropdown-menu">
-			<li><%= link_to "MUN School Director", lists_path %></li>
-			<li><%= link_to "System Admin", lists_path %></li>
-			<li><%= link_to "Conference Manager", lists_path %></li>
-		</ul>
-
-		<li><%= link_to "Conferences", conferences_path %></li>
-		<li><%= link_to "Committees", committees_path %></li>
-		<li><%= link_to "Delegates", delegates_path %></li>
-		<li><%= link_to "Schools", schools_path %></li>
-
+<ul class="nav nav-tabs" style="padding-top:20px;">
 		<li class="dropdown">
+			<a class="dropdown-toggle"	data-toggle="dropdown" href="#">
+				Users
+				<b class="caret"></b>
+			</a>
+
+			<ul class="dropdown-menu">
+				<li><%= link_to "All Users", users_path %></li>
+				<li><%= link_to "Roles", roles_path %></li>
+			</ul>
+		</li>
+		<li><%= link_to "Conferences", conferences_path %></li>
+		<li class="dropdown active">
 			<a class="dropdown-toggle"	data-toggle="dropdown" href="#">
 				Countries
 				<b class="caret"></b>
 			</a>
 
 			<ul class="dropdown-menu">
-				<li><%= link_to "Countries", countries_path %></li>
-				<li><%= link_to "Country custom lists", lists_path %></li>
+				<li><%= link_to "Custom Country Lists", lists_path %></li>
+				<li><%= link_to "All Countries", countries_path %></li>
 			</ul>
 		</li>
+		<li><%= link_to "Committees", committees_path %></li>
+		<li><%= link_to "Schools", schools_path %></li>
+		<li><%= link_to "Delegation Assignments", delegation_assignments_path %></li>
+		<li><%= link_to "Delegates", delegates_path %></li>
+
+		
 	</li>
 </ul>
-
-<br/></br/></br/>
+<h2>Custom Country Lists</h2>
+  
+  <br/>
 
 <div class="well form-inline">
-	<h2>Country lists</h2>
-	<button class="btn pull-left form-inline"><%= link_to 'New List', new_list_path %></button>
-	<br/>
-</div>
 
 <table class="table table-striped">
 	<thead>
@@ -63,7 +61,7 @@
 		<% end %>
 	</tbody>
 </table>
-
+</div>
 <br />
 <hr>
 <p ALIGN="RIGHT"> <i class="icon-chevron-up"></i> <a href="#top">Back to Top</a></p>

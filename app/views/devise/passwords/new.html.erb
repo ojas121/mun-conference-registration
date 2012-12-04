@@ -1,7 +1,8 @@
- <div class="container" style="padding-left:20px; padding-right:20px;">
-<section id="forms" style="padding-top:70px;">
+<div class="container" style="padding-top:50px;">
+<section id="forms">
 
 		<div class="span7 offset2">
+	          <%= render 'layouts/messages' %>
 			<div class="form-horizontal well">
 
 			<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
