@@ -1,23 +1,23 @@
-
-<section id="forms ">
-
-
-	<div class="row">
-		<div class="span6 offset2 pull-left">
-			<div class="form-horizontal well">
+<script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-dropdown.js"></script>
+<section id="forms">
+    <div class="span12">
+      <%= render 'layouts/messages' %>
+      <div class="form-horizontal well">
 				
-
-
-
 <%= form_for([@school, @school.delegates.build]) do |f| %>
 
-  <div class="field">
-    <%= f.label :first_name %><br />
+  <div class="control-group">
+    <%= f.label :first_name, :class => "control-label" %>
+    <div class="controls">
     <%= f.text_field :first_name %>
   </div>
-  <div class="field">
-    <%= f.label :last_name %>
+</div>
+
+  <div class="control-group">
+    <%= f.label :last_name, :class => "control-label" %>
+    <div class="controls">
     <%= f.text_field :last_name %>
+  </div>
   </div>
 
 	  <div class="control-group">
@@ -30,35 +30,40 @@
 
 
 <div class="control-group">
-    <%= f.label :date_of_birth , :class => "control-label" %>
+    <%= f.label :date_of_birth, :class => "control-label" %>
 	<div class="controls">
     <%= f.text_field :date_of_birth, :placeholder => "dd/mm/yyyy", :databehaviour => "datepicker"%>
   </div>
 </div>
 
 
-  <div class="field">
-    <%= f.label :nationality %>
+  <div class="control-group">
+    <%= f.label :nationality, :class => "control-label" %>
+    <div class="controls">
     <%= f.text_field :nationality %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :country %>
+  <div class="control-group">
+    <%= f.label :country, :class => "control-label" %>
+    <div class="controls">
     <%= f.collection_select :country_id, Country.btaschool(@school), :id, :country_name %>
   </div>
-  <div class="field">
-    <%= f.label :committee %>
+  </div>
+  <div class="control-group">
+    <%= f.label :committee, :class => "control-label" %>
+    <div class="controls">
     <%= f.collection_select :committee_id, Committee.btalist(List.btacountry(Country.btaschool(@school))), :id, :committee_name %>
   </div>
-  <div class="actions">
-	<button type="submit" class="btn">Create delegate</button>
   </div>
+  <div class="control-group">
+    <div class="controls">
+	<%= f.submit "Create Delegate", :class => "btn btn-primary"%>
+  </div></div>
 
 <% end %>
 
 
-		</div>
-	</div>
-</div>
+    </div>
+  </div>
+
 </section>
-
-

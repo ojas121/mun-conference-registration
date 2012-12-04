@@ -1,23 +1,38 @@
+<section id="forms">
+    <div class="span12">
+      <%= render 'layouts/messages' %>
+      <div class="form-horizontal well">
 <%= form_for([@conference, @conference.schools.build]) do |f| %>
 
-  <div class="field">
-    <%= f.label :school_name %>
+  <div class="control-group">
+    <%= f.label :school_name, :class => "control-label" %>
+    <div class="controls">
     <%= f.text_field :school_name %>
   </div>
+  </div>
   
-  <div class="field">
-    <%= f.label :school_address %>
+  <div class="control-group">
+    <%= f.label :school_address, :class => "control-label" %>
+    <div class="controls">
     <%= f.text_field :school_address %>
   </div>
+</div>
 
-  <div class="field">
-    <%= f.label :max_students %>
+  <div class="control-group">
+    <%= f.label :max_students, :class => "control-label" %>
+    <div class="controls">
     <%= f.number_field :max_students %>
   </div>
+</div>
 
   <%= f.hidden_field :user_id, :value => current_user.id %>
 
-  <div class="actions">
-	<button type="submit" class="btn">Create school</button>
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit "Create School", :class => "btn btn-primary"%>
   </div>
+</div>
 <% end %>
+</div>
+</div>
+</section>

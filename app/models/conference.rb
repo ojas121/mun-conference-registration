@@ -27,6 +27,7 @@ class Conference < ActiveRecord::Base
   validates_presence_of :conference_details
   validates_presence_of :start_date
   validates_presence_of :end_date
+  validates_presence_of :user_id
   validate :start_must_be_before_end_date
   validate :start_date_not_in_past
 

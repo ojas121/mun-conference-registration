@@ -1,51 +1,27 @@
-<p id="notice"><%= notice %></p>
+<script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-dropdown.js"></script>
+<div class="container">
+<!--when click on conference name-->
+<section id="conference">
+<div class="row-fluid">
 
-</br>
+      <div class="span12 well" style="margin-top:20px;">
+        <h1><%= @school.school_name %></h1>
+        <h3 style="color: #39b1c6;"><%= @school.school_address %></h3> 
+        <p>Number of delegates: <%= @school.max_students %></p>
 
-<div class="span11 well">
+        <b>Countries:</b>
+        <% for country in @school.countries %>
+          <li><%= link_to((country.country_name), country_path(country)) %></li>
+        <% end  %>
+        <br/><br/>
 
-<p>
-  <b>School name:</b>
-  <%= @school.school_name %>
-</p>
+        <b>Delegates:</b>
 
-<p>
-  <b>School address:</b>
-  <%= @school.school_address %>
-</p>
-
-<p>
-  <b>Email address:</b>
-  <%= @school.email %>
-</p>
-
-
-<p>
-  <b>Max students:</b>
-  <%= @school.max_students %>
-</p>
-
-<p>
-  <b>Countries:</b>
-  <% for country in @school.countries %>
-		<li><%= link_to((country.country_name), country_path(country)) %></li>
-  <% end  %>
-
-</p>
-<!-- <p>
-<%= render :partial => 'list_of_delegates' %>
-<%= link_to 'Create Delegate', new_delegate_path(@delegate) %>
-</p>
- -->
-<b>Delegates:</b>
-</br></br>
-<li> <%= render @school.delegates %></li>
-<% if @school.countries != nil %>
-<a href="#createdelegate" role="button" class="btn" data-toggle="modal">Create New Delegate</a>
-<% end %>
-
-
-<div id="createdelegate" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <li><%= render @school.delegates %></li>
+        <% if @school.countries != nil %>
+        <a href="#createdelegate" role="button" class="btn" data-toggle="modal">Create New Delegate</a>
+        <% end %>
+        <div id="createdelegate" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
     <h3 id="myModalLabel">Add Delegate</h3>
@@ -55,16 +31,16 @@
   </div>
 </div>
 
+      </div>
+    </div>
+  </section>
 </div>
-
-
-
-
-
 
 <ul class="pager">
   <li><%= link_to 'Edit', edit_school_path(@school) %> |</li>
   <li><%= link_to 'Back', schools_path %></li>
 </ul>
 
-
+</div>
+</section>
+</div>

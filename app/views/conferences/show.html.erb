@@ -1,3 +1,4 @@
+<script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-dropdown.js"></script>
 <!-- Conference
 ================================================== -->
 <div class="container">
@@ -6,9 +7,6 @@
 	
 	
     <div class="row-fluid">
-
-
-	
 
       <div class="span12 well" style="margin-top:20px;">
         <h1><%= @conference.conference_title %></h1>
@@ -28,11 +26,11 @@
 <% if current_user.role? "Conference Manager" %>
   <div class="row-fluid">
     <div class="span4 well">
-      <h5>STEP 1</h5>
-      <h3>Add Countries</h3>
+      <h5>STEP 1&nbsp;<i class="icon-chevron-right" style="padding-top:2px;"></i></h5>
+      <h3>Country Lists</h3>
       <p>
         <%= render @conference.lists %>
-        <a href="#createlist" role="button" class="btn" data-toggle="modal"> Create List</a>
+        <a href="#createlist" role="button" class="btn" data-toggle="modal"><i class="icon-plus" style="padding-top:2px;"></i>&nbsp;Create Country List</a>
       </p>
 
       <div id="createlist" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -40,7 +38,7 @@
   
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h3 id="myModalLabel">Add Country List</h3>
+          <h3 id="myModalLabel">Create Country List</h3>
         </div>
         <div class="modal-body">
           <%= render 'lists/form' %>
@@ -48,17 +46,17 @@
       </div>
     </div>
     <div class="span4 well">
-      <h5>STEP 2</h5>
-      <h3>Add Committees</h3>
+      <h5>STEP 2&nbsp;<i class="icon-chevron-right" style="padding-top:2px;"></i></h5>
+      <h3>Committees</h3>
       <p>
         <%= render @conference.committees %>
-        <a href="#createcommittee" role="button" class="btn" data-toggle="modal">Add Committee</a>
+        <a href="#createcommittee" role="button" class="btn" data-toggle="modal"><i class="icon-plus" style="padding-top:2px;"></i>&nbsp;Create Committee</a>
       </p>
 
       <div id="createcommittee" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-          <h3 id="myModalLabel">Add Committee</h3>
+          <h3 id="myModalLabel">Create Committee</h3>
         </div>
         <div class="modal-body">
           <%= render 'committees/form' %>
@@ -69,9 +67,9 @@
     
     
     <div class="span4 well">
-      <h5>STEP 3</h5>
+      <h5>STEP 3&nbsp;<i class="icon-chevron-right" style="padding-top:2px;"></i></h5>
       <h3>Assign Schools</h3>
-            <a class="btn" <%= link_to 'Assign delegates to school', delegation_assignments_path %></a>
+      <a href="/delegation_assignments" role="button" class="btn"><i class="icon-tasks" style="padding-top:2px;"></i>&nbsp;Assign Schools</a>
     </div>
   </div>
 <% end %>
@@ -79,7 +77,7 @@
 <% if current_user.role? "MUN Director" %>
   <div class="row-fluid">
     <div class="span4 well">
-      <h5>STEP 1</h5>
+      <h5>STEP 1&nbsp;<i class="icon-chevron-right" style="padding-top:2px;"></i></h5>
       <h3>Register School</h3>
       <p>
         <%= render @conference.schools %>
@@ -98,12 +96,12 @@
       
     </div>
     <div class="span4 well">
-      <h5>STEP 2</h5>
+      <h5>STEP 2&nbsp;<i class="icon-chevron-right" style="padding-top:2px;"></i></h5>
       <h3>Assign Delegates</h3>
-      <a href="schools_path" role="button" class="btn">Assign Delegates</a>
+      <a href="/schools/1" role="button" class="btn">Assign Delegates</a>
     </div>
     <div class="span4 well">
-      <h5>STEP 3</h5>
+      <h5>STEP 3&nbsp;<i class="icon-chevron-right" style="padding-top:2px;"></i></h5>
       <h3>Confirm Submission</h3>
       <a href="schools_path" role="button" class="btn">Confirm Submission</a>
     </div>
@@ -112,17 +110,11 @@
 
   <div class="row-fluid">
     <div class="span6 well">
-      <h3>Committees</h3>
-
-    </div>
-
-
-    
-
-    <div class="span6 well">
       <h3>Conference Description</h3>
       <p><%= @conference.conference_details %></p>
-      <hr>
+
+    </div>
+    <div class="span6 well">
       <h3>Venue</h3>
       <p><%= @conference.venue %></p>
       <p><%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@conference.latitude}%2C#{@conference.longitude}" %></p>

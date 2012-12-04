@@ -1,0 +1,5 @@
+<% for country in Country.all  %>
+     <%= check_box_tag "list[country_ids][]", country.id, @conference.lists.include?(country) %>
+     <%= country.country_name %>
+     <br />
+  <% end  %>

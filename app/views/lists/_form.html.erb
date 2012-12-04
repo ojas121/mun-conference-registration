@@ -1,19 +1,36 @@
+<section id="forms">
+    <div class="span12">
+      <%= render 'layouts/messages' %>
+      <div class="form-horizontal well">
 <%= form_for([@conference, @conference.lists.build]) do |f| %>
 
-  <div class="field">
-    <%= f.label :list_name %><br />
+<div class="control-group">
+  <%= f.label :list_name, :class => "control-label" %>
+  <div class="controls">
     <%= f.text_field :list_name %>
   </div>
-  <div class="field">
-    <%= f.label :countries %><br />
-    <%= render :partial => 'lists/countries_checkboxes' %>
   </div>
-  <% for country in Country.all  %>
+  <div class="control-group">
+    <%= f.label :countries, :class => "control-label" %><br />
+    <div class="controls">
+      <% for country in Country.all  %>
+      <label class="checkbox">
      <%= check_box_tag "list[country_ids][]", country.id, @conference.lists.include?(country) %>
      <%= country.country_name %>
-     <br />
-  <% end  %>
-  <div class="actions">
-    <%= f.submit %>
+        </label>
+      <% end  %>
+    </div>
+  </div>
+  
+  <div class="control-group">
+        <div class="controls">
+          <%= f.submit "Create Country List", :class => "btn btn-primary"%>
+  </div>
   </div>
 <% end %>
+
+
+    </div>
+  </div>
+
+</section>

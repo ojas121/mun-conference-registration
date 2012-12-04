@@ -1,44 +1,41 @@
 <section id="forms">
-
-
-	<div class="row">
-		<div class="span8 offset2">
-			<div class="form-horizontal well">
-				
-
-
+    <div class="span12">
+      <%= render 'layouts/messages' %>
+      <div class="form-horizontal well">
 <%= form_for([@conference, @conference.committees.build]) do |f| %>
 
   	<div class="control-group">
-    <%= f.label :committee_name , :class => "control-label"  %>
+    <%= f.label :committee_name, :class => "control-label"  %>
 <div class="controls">
     <%= f.text_field :committee_name %>
   </div>
 </div>
 
 
-  <div class="field">
-    <%= f.label :Number_of_delegates %>
+  <div class="control-group">
+    <%= f.label :Number_of_delegates, :class => "control-label"  %>
+    <div class="controls">
     <%= f.number_field :num_delegates %>
+</div>
   </div>
-  <div class="field">
-    <%= f.label :list_id %>
+
+  <div class="control-group">
+    <%= f.label :list_id, :class => "control-label" %>
+        <div class="controls">
     <%= f.collection_select :list_id, List.all, :id, :list_name %>
   </div>
-
-</br></br>
-
-<div class="actions">
-	<button type="submit" class="btn">Create committee</button>
   </div>
 
+  <div class="control-group">
+        <div class="controls">
+          <%= f.submit "Create Committee", :class => "btn btn-primary"%>
+  </div>
+  </div>
 
 <% end %>
 
 
 		</div>
 	</div>
-</div>
+
 </section>
-
-

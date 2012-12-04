@@ -39,8 +39,9 @@
 	<% end %>
 </div>
 	<h2>Conferences</h2>
-	
-	<button class="btn pull-left"><i class="icon-plus" style="padding-top:2px;"></i>&nbsp;<%= link_to 'Create New Conference', new_conference_path %></button>
+	<% if current_user.role? "System Admin" %>
+	<a href="/conferences/new" class="btn pull-left"><i class="icon-plus" style="padding-top:2px;"></i>&nbsp;Create New Conference</a>
+	<% end %>
 
 	<br/><br/><br/>
 

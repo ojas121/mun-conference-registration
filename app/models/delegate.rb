@@ -9,7 +9,11 @@ class Delegate < ActiveRecord::Base
     end
     
     
-    #Validations 
-   
-    
+    #Validations
+    validates_presence_of :first_name
+    validates_presence_of :last_name
+  	validates_presence_of :gender
+  	validates_presence_of :nationality
+  	validates_presence_of :country_id
+  	validates_presence_of :committee_id
 end

@@ -7,6 +7,8 @@ class Committee < ActiveRecord::Base
 	#Validations
 	validates :committee_name, :presence => true, :length => { :minimum => 2 }
 	validates :num_delegates, :presence => true
-	
+	validates :list_id, :presence => true
+
+	#Scopes
 	scope :btalist, lambda{ |btalist| joins(:list).where(:lists => {:id => btalist}) }
 end

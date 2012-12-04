@@ -7,17 +7,15 @@ class School < ActiveRecord::Base
 	belongs_to :conference
 	belongs_to :user
 
-	has_many :delegates, :dependent => :destroy
-	accepts_nested_attributes_for :delegates, :allow_destroy => :true
-
-  #Validations
-	validates :school_name, :presence => true
-	validates :max_students, :presence => true
-	validates :email, :format => { :with => %r{.+@.+\..+} }, :allow_blank => false
-	
-
 	has_many :delegation_assignments
 	has_many :countries, :through => :delegation_assignments
 	has_many :lists, :through => :delegation_assignments
+
+	has_many :delegates, :dependent => :destroy
+	accepts_nested_attributes_for :delegates, :allow_destroy => :true
+
+  	#Validations
+	validates :school_name, :presence => true
+	validates :max_students, :presence => true
 
 end
