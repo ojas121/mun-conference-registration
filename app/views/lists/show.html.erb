@@ -1,11 +1,24 @@
-<p id="notice"><%= notice %></p>
+<div class="container" style="padding-top:70px;">
+<div class="span7 offset2">
+<h1>List Information</h1>
 
+</div>
+</div>
+<div class="container">
+
+<section id="forms">
+    <div class="span7 offset2">
+      <%= render 'layouts/messages' %>
+      <div class="form-horizontal well">
 <p>
   <b>List name:</b>
   <%= @list.list_name %>
 </p>
 
 <%= render :partial => 'list_of_countries' %>
-
-<%= link_to 'Edit', edit_list_path(@list) %> |
+      </div>
+      <%= link_to 'Edit', edit_list_path(@list) %> |
 <%= link_to 'Back', lists_path %>
+  </div>
+</section>
+</div>

@@ -67,8 +67,8 @@
 			<td><%= delegate.date_of_birth %></td>
 			<td><%= delegate.nationality %></td>
 			<td><%= delegate.school_id %></td>
-			<td><%= link_to 'Edit', edit_delegate_path(delegate) %></td>
-			<td><%= link_to 'Destroy', delegate, confirm: 'Are you sure?', method: :delete %></td>
+			<td><%= link_to image_tag('edit.png'), edit_delegate_path(delegate) %></td>
+			<td><%= link_to image_tag('trash.png'), delegate, confirm: 'Are you sure?', method: :delete %></td>
 		</tr>
 		<% end %>
 	</tbody>

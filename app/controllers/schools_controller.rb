@@ -4,7 +4,12 @@ class SchoolsController < ApplicationController
   # GET /schools
   # GET /schools.json
   def index
-    @schools = School.all
+    
+    if current_user.role? :"System Admin"
+      @schools = School.all
+    else
+      @schools = School.where("user_id == ?", current_user.id)
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -16,7 +21,12 @@ class SchoolsController < ApplicationController
       	@search = School.search(params[:search])
         @schools = @search.all   # load all matching records
         
-	  
+    if current_user.role? :"System Admin"
+        @schools = @search.all
+      else
+        @schools = @search.where("user_id == ?", current_user.id)
+      end
+     	  
     end
   end
 

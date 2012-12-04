@@ -1,10 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div class="container" style="padding-top:70px;">
+<div class="span7 offset2">
+<h1>Country Information</h1>
 
+</div>
+</div>
+<div class="container">
+
+<section id="forms">
+    <div class="span7 offset2">
+      <%= render 'layouts/messages' %>
+      <div class="form-horizontal well">
 <p>
   <b>Country name:</b>
   <%= @country.country_name %>
 </p>
-
-
+      </div>
 <%= link_to 'Edit', edit_country_path(@country) %> |
 <%= link_to 'Back', countries_path %>
+  </div>
+</section>
+

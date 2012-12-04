@@ -1,6 +1,8 @@
 class DelegationAssignmentsController < ApplicationController
   # GET /delegation_assignments
   # GET /delegation_assignments.json
+
+
   def index
     @delegation_assignments = DelegationAssignment.all
 
@@ -46,6 +48,7 @@ class DelegationAssignmentsController < ApplicationController
       if @delegation_assignment.save
         format.html { redirect_to @delegation_assignment, notice: 'Delegation assignment was successfully created.' }
         format.json { render json: @delegation_assignment, status: :created, location: @delegation_assignment }
+      
       else
         format.html { render action: "new" }
         format.json { render json: @delegation_assignment.errors, status: :unprocessable_entity }
@@ -57,12 +60,14 @@ class DelegationAssignmentsController < ApplicationController
   # PUT /delegation_assignments/1.json
   def update
     @delegation_assignment = DelegationAssignment.find(params[:id])
-
+       
     respond_to do |format|
       if @delegation_assignment.update_attributes(params[:delegation_assignment])
-        format.html { redirect_to @delegation_assignment, notice: 'Delegation assignment was successfully updated.' }
+        format.html { redirect_to delegation_assignments_path, notice: 'Delegation assignment was successfully updated.' }
         format.json { head :no_content }
         UserMailer.update_delegation_assignment_msg(@delegation_assignment).deliver
+        
+
       else
         format.html { render action: "edit" }
         format.json { render json: @delegation_assignment.errors, status: :unprocessable_entity }

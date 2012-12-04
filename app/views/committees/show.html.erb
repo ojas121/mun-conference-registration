@@ -1,6 +1,14 @@
-<p id="notice"><%= notice %></p>
-</br>
-<div class="span11 well">
+<div class="container" style="padding-top:70px;">
+<div class="span7 offset2">
+<h1>Committee Information</h1>
+</div>
+</div>
+<div class="container">
+
+<section id="forms">
+    <div class="span7 offset2">
+      <%= render 'layouts/messages' %>
+      <div class="form-horizontal well">
 <p>
   <b>Committee name:</b>
   <%= @committee.committee_name %>
@@ -22,11 +30,10 @@
   <b>Conference:</b>
   <%= @committee.conference.conference_title %>
 </p>
+      </div>
+<%= link_to 'Edit committee', edit_committee_path(@committee) %> |
+<%= link_to 'Back to committees list', committees_path %>
+  </div>
+</section>
 </div>
-
-<ul class="pager">
-  <li>	<%= link_to 'Edit committee', edit_committee_path(@committee) %> |</li>
-  <li><%= link_to 'Back to committees list', committees_path %></li>
-</ul>
-
 
