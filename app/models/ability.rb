@@ -8,11 +8,37 @@ class Ability
         can :manage, :all
     else
         if user.role? :"Conference Manager"
-            can :manage, :all
+            cannot :manage, Ability
+            cannot :manage, Role
+            cannot :manage, Country
+            can :create, User
+            can :read, User
+            can :read, Conference
+            can :manage, List           
+            can :manage, School
+            can :manage, Committee
+            can :manage, Delegate
+     
+
         else
-            can :manage, :all
+            if user.role? :"MUN Director"
+                can :manage, School
+                can :manage, Delegate 
+                cannot :manage, Ability
+                cannot :read, User
+                cannot :manage, Role
+                cannot :manage, Country
+                can    :read, Conference
+                cannot :manage, List
+                cannot :manage, Committee
+               
+
+                
+            end
+           
         end
     end
+
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)
