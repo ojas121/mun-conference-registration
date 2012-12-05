@@ -11,8 +11,7 @@ class Ability
             cannot :manage, Ability
             cannot :manage, Role
             cannot :manage, Country
-            can :create, User
-            can :read, User
+            can :manage, User
             can :read, Conference
             can :manage, List           
             can :manage, School
