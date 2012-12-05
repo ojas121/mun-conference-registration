@@ -8,15 +8,16 @@ class Ability
         can :manage, :all
     else
         if user.role? :"Conference Manager"
-            cannot :manage, Ability
-            cannot :manage, Role
-            cannot :manage, Country
-            can :manage, User
-            can :read, Conference
-            can :manage, List           
-            can :manage, School
-            can :manage, Committee
-            can :manage, Delegate
+            can :manage, :all
+            # cannot :manage, Ability
+            # cannot :manage, Role
+            # cannot :manage, Country
+            # can :manage, User
+            # can :read, Conference
+            # can :manage, List           
+            # can :manage, School
+            # can :manage, Committee
+            # can :manage, Delegate
      
 
         else
