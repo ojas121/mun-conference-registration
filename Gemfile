@@ -21,7 +21,6 @@ gem "meta_search"
 gem "bootstrap-datepicker-rails"
 gem "heroku"
 gem "thin"
-gem "bootstrap-sass"
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
