@@ -7,7 +7,7 @@ class ConferencesController < ApplicationController
     if current_user.role? :"System Admin"
       @conferences = Conference.all
     else
-      @conferences = Conference.where("is_active == ?", true)
+      @conferences = Conference.where("is_active = ?", true)
     end
 
     respond_to do |format|
@@ -18,7 +18,7 @@ class ConferencesController < ApplicationController
       if current_user.role? :"System Admin"
         @conferences = @search.all
       else
-        @conferences = @search.where("is_active == ?", true)
+        @conferences = @search.where("is_active = ?", true)
       end
     end
   end
