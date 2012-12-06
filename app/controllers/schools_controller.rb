@@ -8,7 +8,7 @@ class SchoolsController < ApplicationController
     if current_user.role? :"System Admin"
       @schools = School.all
     else
-      @schools = School.where("user_id == ?", current_user.id)
+      @schools = School.where("user_id = ?", current_user.id)
     end
 
     respond_to do |format|
@@ -24,7 +24,7 @@ class SchoolsController < ApplicationController
     if current_user.role? :"System Admin"
         @schools = @search.all
       else
-        @schools = @search.where("user_id == ?", current_user.id)
+        @schools = @search.where("user_id = ?", current_user.id)
       end
      	  
     end
