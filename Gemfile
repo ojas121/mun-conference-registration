@@ -19,6 +19,7 @@ gem 'geocoder'
 gem 'to_xls'
 gem "meta_search"
 gem "bootstrap-datepicker-rails"
+gem "bootstrap-sass"
 gem "heroku"
 gem "thin"
 # Gems used only for assets and not required
