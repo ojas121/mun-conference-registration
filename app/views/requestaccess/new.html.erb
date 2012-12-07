@@ -35,6 +35,7 @@
     <div class="control-group">
       <%= form.label :nationality, :class => "control-label" %>
       <div class="controls">
+        <%= f.select(:nationality, User::COUNTRIES, :prompt => "Select Country") %>
       <%= form.text_field :nationality %>
     </div>
     </div>

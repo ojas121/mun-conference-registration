@@ -22,7 +22,7 @@
   <div class="control-group">
     <%= f.label :list_id, :class => "control-label" %>
         <div class="controls">
-    <%= f.collection_select :list_id, List.all, :id, :list_name %>
+    <%= f.collection_select :list_id, List.all, :id, :list_name, :prompt => "Select Country List" %>
   </div>
   </div>
 
