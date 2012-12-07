@@ -24,7 +24,7 @@
     <%= f.label :assign_conference_manager , :class => "control-label" %>
 		<div class="controls">
     <%= f.collection_select :user_id, User.with_role("Conference Manager"), :id, :fullname, :prompt => "Select Conference Manager" %>
-    <p class="help-block">(or add a <%= link_to "new Conference Manager", new_user_path(@user) %>)</p>
+    <p class="help-block">(or add a <%= link_to "new Conference Manager", new_user_path(@user), :target => "_blank" %>)</p>
   		</div>
 </div>
 
