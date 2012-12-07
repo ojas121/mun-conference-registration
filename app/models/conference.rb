@@ -33,8 +33,8 @@ class Conference < ActiveRecord::Base
 
   #Methods
   def start_must_be_before_end_date
-    errors.add(:start_date, "Must be before end time") unless 
-    self.start_date < self.end_date
+    errors.add(:start_date, "Must be before end time") unless
+    self.start_date == self.end_date
   end
 
   def start_date_not_in_past
