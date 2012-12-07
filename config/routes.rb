@@ -14,7 +14,10 @@ I3s::Application.routes.draw do
     put "/confirm" => "confirmations#confirm"
   end
   
-  resources :users
+  resources :users do
+    put :update_password, :on => :member
+  end
+
 
   resources :assignments
   
