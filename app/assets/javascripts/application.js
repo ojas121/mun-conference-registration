@@ -21,10 +21,3 @@ $('.datepicker').datepicker()
 $(document).on("focus", "[databehaviour~='datepicker']", function(e){
     $(this).datepicker({"format": "dd/mm/yyyy", "weekStart": 0, "autoclose": true});
 });
-
-boxes = $('.well');
-maxHeight = Math.max.apply(
-Math, boxes.map(function() {
-    return $(this).height();
-}).get());
-boxes.height(maxHeight);​

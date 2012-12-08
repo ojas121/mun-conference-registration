@@ -3,6 +3,7 @@ class Committee < ActiveRecord::Base
 	#Relationships
 	belongs_to :conference
 	belongs_to :list
+	has_many :delegates, limit: 2
 
 	#Validations
 	validates :committee_name, :presence => true, :length => { :minimum => 2 }

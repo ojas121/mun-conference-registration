@@ -5,7 +5,7 @@ class DelegationAssignmentsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @delegation_assignments = DelegationAssignment.order("country_id ASC")
+    @delegation_assignments = DelegationAssignment.order("list_id DESC")
 
     respond_to do |format|
       format.html # index.html.erb

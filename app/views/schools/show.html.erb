@@ -1,25 +1,112 @@
-
 <div class="container">
+<% if !current_user.role? :"MUN Director" %>
+<ul class="nav nav-tabs" style="padding-top:20px; background-color:white; margin-bottom: 0px;">
+    <% if current_user.role? "System Admin" %>
+    <li class="dropdown">
+      <a class="dropdown-toggle"  data-toggle="dropdown" href="#">
+        Users
+        <b class="caret"></b>
+      </a>
+
+      <ul class="dropdown-menu">
+        <li><%= link_to "All Users", users_path %></li>
+        <li><%= link_to "Roles", roles_path %></li>
+      </ul>
+    </li>
+    <% else %>
+    
+    <li><%= link_to "Users", users_path %></li>
+    <% end %>
+    </li>
+    <li><%= link_to "Conferences", conferences_path %></li>
+    <li class="dropdown">
+      <a class="dropdown-toggle"  data-toggle="dropdown" href="#">
+        Countries
+        <b class="caret"></b>
+      </a>
+
+      <ul class="dropdown-menu">
+        <li><%= link_to "Custom Country Lists", lists_path %></li>
+        <li><%= link_to "All Countries", countries_path %></li>
+      </ul>
+    </li>
+    <li><%= link_to "Committees", committees_path %></li>
+    <li class="active"><%= link_to "Schools", schools_path %></li>
+    <li><%= link_to "Delegation Assignments", delegation_assignments_path %></li>
+    <li><%= link_to "Delegates", delegates_path %></li>
+  </li>
+</ul>
+<% else %>
+<ul class="nav nav-tabs" style="padding-top:20px; background-color:white; margin-bottom: 0px;">
+    <li ><%= link_to "Conferences", conferences_path %></li>
+    <li class="active"><%= link_to "Schools", schools_path %></li>
+    <li><%= link_to "Delegates", delegates_path %></li>
+  </li>
+</ul>
+<% end %>
 <!--when click on conference name-->
 <section id="conference">
 <div class="row-fluid">
-
-      <div class="span12 well" style="margin-top:20px;">
+<div class="span12 well" style="margin-top:20px; height:auto;">
+        <h4>Registration for <%= @school.conference.conference_title %></h4>
+        <hr>
         <h1><%= @school.school_name %></h1>
-        <h3 style="color: #39b1c6;"><%= @school.school_address %></h3> 
+        <h3 style="color: #39b1c6;"><%= @school.school_address %></h3>
+        <% if @school.countries != nil %>
+        <a href="#createdelegate" role="button" class="btn" data-toggle="modal"><i class="icon-plus" style="padding-top:2px;"></i>&nbsp;Add Delegate</a>
+        <% end %>
 
-        <b>Countries:</b>
-        <% for country in @school.countries %>
-          <li><%= link_to((country.country_name), country_path(country)) %></li>
-        <% end  %>
+    </div>
+</div>
+<% for country in Country.btaschool(@school) %>
+<div class="row-fluid">
+      <div class="span12 well" style="height:auto;">
+        
+<table class="table table-striped">
+  <thead>
+              <th>Committee</th>
+              <th>Delegate</th>
+              <th>Date of Birth</th>
+              <th>Gender</th>
+              <th>Nationality</th>
+              <th></th>
+            </thead>
+        
+          <h3><%= country.country_name %></h3>
+
+
+          <% for list in country.lists %>
+            
+            <tbody>
+            <% for committee in list.committees %>
+              <tr>
+              
+              <% for delegate in committee.delegates %>
+              <td><%= committee.committee_name %></td>
+                <td><%= link_to((delegate.fullname), delegate_path(delegate)) %></td>
+                <td><%= delegate.date_of_birth.strftime('%b %d, %Y') %></td>
+              <td><%= delegate.gender %></td>
+              <td><%= delegate.nationality %></td>
+              <td><%= link_to image_tag('trash.png'), [delegate.school, delegate], :confirm => 'Are you sure you want to delete this delegate?', :method => :delete %></td>
+              </tr>
+              <% end %>
+              
+              
+              
+            <% end %>
+          </tbody>
+          
+          <% end %>
+        
+        </table>
+        
+      </div>
+    </div>
+    <% end %>
+
         <br/><br/>
 
-        <b>Delegates:</b>
-
-        <li><%= render @school.delegates %></li>
-        <% if @school.countries != nil %>
-        <a href="#createdelegate" role="button" class="btn" data-toggle="modal">Create New Delegate</a>
-        <% end %>
+        
         <div id="createdelegate" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -32,14 +119,3 @@
 
       </div>
     </div>
-  </section>
-</div>
-
-<ul class="pager">
-  <li><%= link_to 'Edit', edit_school_path(@school) %> |</li>
-  <li><%= link_to 'Back', schools_path %></li>
-</ul>
-
-</div>
-</section>
-</div>

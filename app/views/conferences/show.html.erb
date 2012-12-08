@@ -66,7 +66,6 @@
       </p>
 
       <div id="createlist" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-
   
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
@@ -101,21 +100,21 @@
      <div class="span3 well">
       <h5>STEP 3&nbsp;<i class="icon-chevron-right" style="padding-top:2px;"></i></h5>
       <h3>MUN Directors</h3>
+      <p>
       <a href="/users/new" role="button" class="btn" style="margin-top: 10px;"><i class="icon-tasks" style="padding-top:2px;"></i>&nbsp;Add MUN Directors</a>
+    </p>
     </div>
 
     
     <div class="span3 well">
       <h5>STEP 4&nbsp;<i class="icon-chevron-right" style="padding-top:2px;"></i></h5>
       <h3>Schools</h3>
+      <p>
       <a href="/delegation_assignments" role="button" class="btn" style="margin-top: 10px;"><i class="icon-tasks" style="padding-top:2px;"></i>&nbsp;Assign Schools</a>
+    </p>
     </div>
   </div>
 <% end %>
-
-
-
-
 
 <% if current_user.role? "MUN Director" %>
   <div class="row-fluid">
@@ -171,8 +170,99 @@
     </div>
   </div>
 </section>
+<% if current_user.role? "System Admin" %>
+  <div class="row-fluid">
+    <div class="span3 well">
+      <h3>Country Lists</h3>
+      <p>
+        <%= render @conference.lists %>
+        <a href="#createlist" role="button" class="btn" data-toggle="modal" style="margin-top: 10px;"><i class="icon-plus" style="padding-top:2px;"></i>&nbsp;Create Country List</a>
+      </p>
 
+      <div id="createlist" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
+  
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="myModalLabel">Create Country List</h3>
+        </div>
+        <div class="modal-body">
+          <%= render 'lists/form' %>
+        </div>
+      </div>
+    </div>
+    <div class="span3 well">
+      <h3>Committees</h3>
+      <p>
+        <%= render @conference.committees %>
+        <a href="#createcommittee" role="button" class="btn" data-toggle="modal" style="margin-top: 10px;"><i class="icon-plus" style="padding-top:2px;"></i>&nbsp;Create Committee</a>
+      </p>
+
+      <div id="createcommittee" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="myModalLabel">Create Committee</h3>
+        </div>
+        <div class="modal-body">
+          <%= render 'committees/form' %>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+     <div class="span3 well">
+      <h3>MUN Directors</h3>
+      <p>
+      <a href="/users/new" role="button" class="btn" style="margin-top: 10px;"><i class="icon-tasks" style="padding-top:2px;"></i>&nbsp;Add MUN Directors</a>
+    </p>
+    </div>
+
+    
+    <div class="span3 well">
+      <h3>Schools</h3>
+      <p>
+      <a href="/delegation_assignments" role="button" class="btn" style="margin-top: 10px;"><i class="icon-tasks" style="padding-top:2px;"></i>&nbsp;Assign Schools</a>
+    </p>
+    </div>
+  </div>
+<% end %>
+<% if current_user.role? "System Admin" %>
+  <div class="row-fluid">
+    <div class="span4 well">
+      <h3>Register School</h3>
+      <p>
+        <%= render @conference.schools %>
+        <a href="#createschool" role="button" class="btn" data-toggle="modal" style="margin-top: 10px;"><i class="icon-plus" style="padding-top:2px;"></i>&nbsp;Register School</a>
+      </p>
+
+      <div id="createschool" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h3 id="myModalLabel">Register School</h3>
+        </div>
+        <div class="modal-body">
+          <%= render 'schools/form' %>
+        </div>
+      </div>
+      
+    </div>
+    <div class="span4 well">
+      <h3>Assign Delegates</h3>
+        <p>
+        <a href="/schools" role="button" class="btn" style="margin-top: 10px;"><i class="icon-tasks" style="padding-top:2px;"></i>&nbsp;Assign Delegates</a>
+      </p>
+    </div>
+  
+  
+    <div class="span4 well">
+      <h3>Confirm Submission</h3>
+      <p>
+      <a href="mailto:teami3s.2012@gmail.com?Subject=School%20Registers&Body=Delegates%20from%20my%20school%20have%20been%20registered%20for%20the%20conference.%20Thank%20you." role="button" class="btn" style="margin-top: 10px;"><i class="icon-envelope-alt" style="padding-top:2px;"></i>&nbsp;Send Email</a>
+    </p>
+    </div>
+  </div>
+<% end %>
 <hr>
 
 
@@ -182,19 +272,3 @@
 
 </div>
 <script>
-$('.well').equalHeights();
-
-$.fn.equalHeights = function(px) {
-$(this).each(function(){
-var currentTallest = 0;
-$(this).children().each(function(i){
-    if ($(this).height() > currentTallest) { currentTallest = $(this).height(); }
-        });
-    if (!px || !Number.prototype.pxToEm) currentTallest = currentTallest.pxToEm(); //use ems unless px is specified
-        // for ie6, set height since min-height isn't supported
-    if ($.browser.msie && $.browser.version == 6.0) { $(this).children().css({'height': currentTallest}); }
-        $(this).children().css({'min-height': currentTallest}); 
-    });
-    return this;
-};​
-</script>

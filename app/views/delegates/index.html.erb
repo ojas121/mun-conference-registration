@@ -69,7 +69,6 @@
 			<th>Nationality</th>
 			<th>School</th>
 			<th></th>
-			<th></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -77,11 +76,10 @@
 		<tr>
 			<td><%= link_to delegate.fullname, delegate %></td>
 			<td><%= delegate.gender %></td>
-			<td><%= delegate.date_of_birth %></td>
+			<td><%= delegate.date_of_birth.strftime('%b %d, %Y') %></td>
 			<td><%= delegate.nationality %></td>
-			<td><%= delegate.school_id %></td>
-			<td><%= link_to image_tag('edit.png'), edit_delegate_path(delegate) %></td>
-			<td><%= link_to image_tag('trash.png'), delegate, confirm: 'Are you sure?', method: :delete %></td>
+			<td><%= delegate.school.school_name %></td>
+			<td><%= link_to image_tag('trash.png'), [delegate.school, delegate], :confirm => 'Are you sure you want to delete this delegate?', :method => :delete %></td>
 		</tr>
 		<% end %>
 	</tbody>

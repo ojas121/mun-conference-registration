@@ -2,6 +2,7 @@ class Delegate < ActiveRecord::Base
 
 	#Relationships
 	belongs_to :school
+  belongs_to :committee
 
 	#Methods
 	def fullname
@@ -15,6 +16,9 @@ class Delegate < ActiveRecord::Base
   validates_presence_of :nationality
   validates_presence_of :country_id
   validates_presence_of :committee_id
+
+  #Scopes
+  scope :btacommittee, lambda{ |btacommittee| joins(:committee).where(:committees => {:id => btacommittee}) }
 
   COUNTRIES = [
   "Afghanistan",
