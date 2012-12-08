@@ -1,7 +1,6 @@
-<table class="table table-bordered">
-	<thead>
-		<th><%= link_to school.school_name, school_path(school) %></th>
-				
-		
-	</thead>
+<table class="table" style="margin-bottom:0px;">
+<tbody>
+<td style="width: 220px;"><%= link_to school.school_name, school_path(school) %></td>
+<td><%= link_to image_tag('trash.png'), [school.conference, school], :confirm => 'Are you sure you want to delete this school?', :method => :delete %></td>
+</tbody>
 </table>

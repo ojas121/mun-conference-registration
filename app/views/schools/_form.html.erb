@@ -18,18 +18,11 @@
   </div>
 </div>
 
-  <div class="control-group">
-    <%= f.label :max_students, :class => "control-label" %>
-    <div class="controls">
-    <%= f.number_field :max_students %>
-  </div>
-</div>
-
   <%= f.hidden_field :user_id, :value => current_user.id %>
 
   <div class="control-group">
     <div class="controls">
-      <%= f.submit "Create School", :class => "btn btn-primary"%>
+      <%= f.submit "Register School", :class => "btn btn-primary"%>
   </div>
 </div>
 <% end %>

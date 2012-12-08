@@ -8,34 +8,21 @@ class Ability
         can :manage, :all
     else
         if user.role? :"Conference Manager"
-            can :manage, :all
-            # cannot :manage, Ability
-            # cannot :manage, Role
-            # cannot :manage, Country
-            # can :manage, User
-            # can :read, Conference
-            # can :manage, List           
-            # can :manage, School
-            # can :manage, Committee
-            # can :manage, Delegate
-     
-
+            can :read, Conference
+            can :manage, List
+            can :manage, Country
+            can :manage, Committee
+            can :create, User
+            can :read, DelegationAssignment
+            can :update, DelegationAssignment
+            can :manage, School
+            can :manage, Delegate
         else
             if user.role? :"MUN Director"
+                can :read, Conference
                 can :manage, School
-                can :manage, Delegate 
-                cannot :manage, Ability
-                cannot :read, User
-                cannot :manage, Role
-                cannot :manage, Country
-                can    :read, Conference
-                cannot :manage, List
-                cannot :manage, Committee
-               
-
-                
+                can :manage, Delegate
             end
-           
         end
     end
 

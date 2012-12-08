@@ -1,17 +1,23 @@
 <div class="container" style="padding-left:20px; padding-right:20px; background-color:white;">
 
-<ul class="nav nav-tabs" style="padding-top:20px;">
-		<li class="dropdown">
-			<a class="dropdown-toggle"	data-toggle="dropdown" href="#">
-				Users
-				<b class="caret"></b>
-			</a>
+<% if !current_user.role? :"MUN Director" %>
+	<ul class="nav nav-tabs" style="padding-top:20px;">
+    <% if current_user.role? "System Admin" %>
+    <li class="dropdown">
+      <a class="dropdown-toggle"  data-toggle="dropdown" href="#">
+        Users
+        <b class="caret"></b>
+      </a>
 
-			<ul class="dropdown-menu">
-				<li><%= link_to "All Users", users_path %></li>
-				<li><%= link_to "Roles", roles_path %></li>
-			</ul>
-		</li>
+      <ul class="dropdown-menu">
+        <li><%= link_to "All Users", users_path %></li>
+        <li><%= link_to "Roles", roles_path %></li>
+      </ul>
+    </li>
+    <% else %>
+    
+    <li><%= link_to "Users", users_path %></li>
+    <% end %>
 		<li class="active"><%= link_to "Conferences", conferences_path %></li>
 		<li class="dropdown">
 			<a class="dropdown-toggle"	data-toggle="dropdown" href="#">
@@ -30,7 +36,14 @@
 		<li><%= link_to "Delegates", delegates_path %></li>
 	</li>
 </ul>
-
+<% else %>
+<ul class="nav nav-tabs" style="padding-top:20px;">
+		<li class="active"><%= link_to "Conferences", conferences_path %></li>
+		<li><%= link_to "Schools", schools_path %></li>
+		<li><%= link_to "Delegates", delegates_path %></li>
+	</li>
+</ul>
+<% end %>
 <div class="pull-right">
 	<%= form_for @search, :url => conferences_path, :html => {:method => :get} do |f| %>
 		<%= f.text_field :conference_title_contains, :class => "navbar-search form-inline input-medium search-query", :placeholder => "Search by title" %>
@@ -40,18 +53,15 @@
 	<% if current_user.role? "System Admin" %>
 	<a href="/conferences/new" class="btn pull-left"><i class="icon-plus" style="padding-top:2px;"></i>&nbsp;Create New Conference</a>
 	<% end %>
-
-	<br/><br/><br/>
+	<br/><br/>
 
 <div class="well form-inline">
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th>Conference title</th>
-			<th>Duration</th>
-			<th>Host</th>
-			<th>Venue</th>
-			<th></th>
+			<th>Conference</th>
+			<th>Conference Manager</th>
+			<th>Session</th>
 			<th></th>
 			<th></th>
 		</tr>
@@ -59,10 +69,16 @@
 	<tbody>
 		<% @conferences.each do |conference| %>
 		<tr>
-			<td><%= link_to conference.conference_title, conference %></td>
-			<td><%= conference.duration %></td>
-			<td><%= conference.host %></td>
-			<td><%= conference.venue %></td>
+			<td><%= link_to conference.conference_title, conference %><br/>
+			<%= conference.duration %><br/>
+			<%= conference.venue %></td>
+			<td><%= link_to conference.user.fullname, conference.user %></td>
+			<td><% if conference.is_active? %>
+				<p style="color: #47CB2A; margin-bottom: 0;">Active</p>
+				<% else %>
+				<p style="color: #EB0301; margin-bottom: 0;">Inactive</p>
+				<% end %>
+			</td>
 			<td><%= link_to image_tag('edit.png'), edit_conference_path(conference) %></td>
 			<td><%= link_to image_tag('trash.png'), conference, confirm: 'Are you sure you want to delete this conference? This cannot be undone.', method: :delete %></td>
 		</tr>

@@ -35,7 +35,11 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = current_user
+    if current_user.role? :"System Admin"
+      @user = User.find(params[:id])
+    else
+      @user = current_user
+    end
   end
 
   # POST /users

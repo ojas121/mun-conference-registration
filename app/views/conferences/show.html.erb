@@ -1,4 +1,3 @@
-
 <!-- Conference
 ================================================== -->
 <div class="container">
@@ -7,7 +6,7 @@
 	
 	<% if current_user.role? "System Admin" %>
 
-<ul class="nav nav-tabs" style="padding-top:20px;">
+<ul class="nav nav-tabs" style="padding-top:20px; background-color:white; margin-bottom: 0px;">
 		<li class="dropdown">
 			<a class="dropdown-toggle"	data-toggle="dropdown" href="#">
 				Users
@@ -41,19 +40,18 @@
 	<% end %>
 	
     <div class="row-fluid">
-
       <div class="span12 well" style="margin-top:20px;">
         <h1><%= @conference.conference_title %></h1>
         <h3 style="color: #39b1c6;"><%= @conference.start_date.strftime('%B %e, %Y') %> - <%= @conference.end_date.strftime('%B %e, %Y') %></h3>
         <h4>Hosted by <%= @conference.host %></h4>
-        <% if current_user.role? "System Admin" %>
-<hr>
-      <p><%= link_to image_tag('edit.png'), edit_conference_path(@conference) %>&nbsp;&nbsp;<%= link_to 'Edit Conference', edit_conference_path(@conference) %>
+                <% if current_user.role? "System Admin" %>
+                <div style="margin-top:30px;">
+      <%= link_to image_tag('edit.png'), edit_conference_path(@conference) %>&nbsp;&nbsp;<%= link_to 'Edit Conference', edit_conference_path(@conference) %>
         &nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;
         <%= link_to image_tag('trash.png'), @conference, confirm: 'Are you sure you want to delete this conference? This cannot be undone.', method: :delete %>&nbsp;&nbsp;<%= link_to 'Delete Conference', @conference, confirm: 'Are you sure you want to delete this conference? This cannot be undone.', method: :delete %>
-      </p>
+
+    </div>
       <% end %>
-      
       </div>
     </div>
 
@@ -64,7 +62,7 @@
       <h3>Country Lists</h3>
       <p>
         <%= render @conference.lists %>
-        <a href="#createlist" role="button" class="btn" data-toggle="modal"><i class="icon-plus" style="padding-top:2px;"></i>&nbsp;Create Country List</a>
+        <a href="#createlist" role="button" class="btn" data-toggle="modal" style="margin-top: 10px;"><i class="icon-plus" style="padding-top:2px;"></i>&nbsp;Create Country List</a>
       </p>
 
       <div id="createlist" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -84,7 +82,7 @@
       <h3>Committees</h3>
       <p>
         <%= render @conference.committees %>
-        <a href="#createcommittee" role="button" class="btn" data-toggle="modal"><i class="icon-plus" style="padding-top:2px;"></i>&nbsp;Create Committee</a>
+        <a href="#createcommittee" role="button" class="btn" data-toggle="modal" style="margin-top: 10px;"><i class="icon-plus" style="padding-top:2px;"></i>&nbsp;Create Committee</a>
       </p>
 
       <div id="createcommittee" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -103,14 +101,14 @@
      <div class="span3 well">
       <h5>STEP 3&nbsp;<i class="icon-chevron-right" style="padding-top:2px;"></i></h5>
       <h3>MUN Directors</h3>
-      <a href="/users/new" role="button" class="btn"><i class="icon-tasks" style="padding-top:2px;"></i>&nbsp;Add MUN Directors</a>
+      <a href="/users/new" role="button" class="btn" style="margin-top: 10px;"><i class="icon-tasks" style="padding-top:2px;"></i>&nbsp;Add MUN Directors</a>
     </div>
 
     
     <div class="span3 well">
       <h5>STEP 4&nbsp;<i class="icon-chevron-right" style="padding-top:2px;"></i></h5>
       <h3>Schools</h3>
-      <a href="/delegation_assignments" role="button" class="btn"><i class="icon-tasks" style="padding-top:2px;"></i>&nbsp;Assign Schools</a>
+      <a href="/delegation_assignments" role="button" class="btn" style="margin-top: 10px;"><i class="icon-tasks" style="padding-top:2px;"></i>&nbsp;Assign Schools</a>
     </div>
   </div>
 <% end %>
@@ -126,7 +124,7 @@
       <h3>Register School</h3>
       <p>
         <%= render @conference.schools %>
-        <a href="#createschool" role="button" class="btn" data-toggle="modal">Register School</a>
+        <a href="#createschool" role="button" class="btn" data-toggle="modal" style="margin-top: 10px;"><i class="icon-plus" style="padding-top:2px;"></i>&nbsp;Register School</a>
       </p>
 
       <div id="createschool" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -144,7 +142,7 @@
       <h5>STEP 2&nbsp;<i class="icon-chevron-right" style="padding-top:2px;"></i></h5>
       <h3>Assign Delegates</h3>
         <p>
-        <a href="/schools" role="button" class="btn">Assign Delegates</a>
+        <a href="/schools" role="button" class="btn" style="margin-top: 10px;"><i class="icon-tasks" style="padding-top:2px;"></i>&nbsp;Assign Delegates</a>
       </p>
     </div>
   
@@ -152,14 +150,16 @@
     <div class="span4 well">
       <h5>STEP 3&nbsp;<i class="icon-chevron-right" style="padding-top:2px;"></i></h5>
       <h3>Confirm Submission</h3>
-      <a href="mailto:teami3s.2012@gmail.com?Subject=School%20Registers&Body=Delegates%20from%20my%20school%20have%20been%20registered%20for%20the%20conference.%20Thank%20you." role="button" class="btn">Send Email</a>
+      <p>
+      <a href="mailto:teami3s.2012@gmail.com?Subject=School%20Registers&Body=Delegates%20from%20my%20school%20have%20been%20registered%20for%20the%20conference.%20Thank%20you." role="button" class="btn" style="margin-top: 10px;"><i class="icon-envelope-alt" style="padding-top:2px;"></i>&nbsp;Send Email</a>
+    </p>
     </div>
   </div>
 <% end %>
 
   <div class="row-fluid">
     <div class="span6 well">
-      <h3>Conference Description</h3>
+      <h3>Conference Details</h3>
       <p><%= @conference.conference_details %></p>
 
     </div>

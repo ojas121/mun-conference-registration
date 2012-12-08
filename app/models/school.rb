@@ -16,6 +16,5 @@ class School < ActiveRecord::Base
 
   	#Validations
 	validates :school_name, :presence => true
-	validates :max_students, :presence => true
 
 end

@@ -12,11 +12,11 @@
   </div>
   <div class="control-group">
     <%= f.label :countries, :class => "control-label" %><br />
-    <div class="controls">
+      <div class="controls checkboxlist">
       <% for country in Country.all  %>
       <label class="checkbox">
-     <%= check_box_tag "list[country_ids][]", country.id, @conference.lists.include?(country) %>
-     <%= country.country_name %>
+          <%= check_box_tag "list[country_ids][]", country.id, @conference.lists.include?(country) %>
+          <%= country.country_name %>
         </label>
       <% end  %>
     </div>

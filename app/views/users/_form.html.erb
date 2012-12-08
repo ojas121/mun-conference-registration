@@ -91,53 +91,7 @@
           </div>
         <% end %>
       </div>
-      <div class="form-horizontal well">
-        <%= form_for(@user) do |f| %>
-          <% if @user.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-              <ul>
-                <% @user.errors.full_messages.each do |msg| %>
-                  <li><%= msg %></li>
-                <% end %>
-              </ul>
-            </div>
-          <% end %>
-
-          <legend>Change Password</legend>
-          <%= form_for(@user, :url => { :action => "update_password" } ) do |f| %>
-
-          <div class="control-group">
-            <%= f.label :current_password, :class => "control-label" %>
-            <div class="controls">
-              <%= f.password_field :current_password %>
-            </div>
-          </div>
-
-          <div class="control-group">
-            <%= f.label :password, :class => "control-label" %>
-            <div class="controls">
-              <%= f.password_field :password, :autocomplete => "off" %>
-            </div>
-          </div>
-
-          <div class="control-group">
-            <%= f.label :password_confirmation, :class => "control-label" %>
-            <div class="controls">
-              <%= f.password_field :password_confirmation %>
-            </div>
-          </div>
-          <% end %>
-
-          <div class="control-group">
-            <div class="controls">
-              <%= f.submit "Change Password", :class => "btn btn-primary"%>
-              <%= link_to "Cancel", root_path, :class => "btn" %>
-            </div>
-          </div>
-          <% end %>
-        </div>
+      
     </div>
 
 </section>

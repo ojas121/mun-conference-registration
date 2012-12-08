@@ -1,10 +1,11 @@
 class DelegationAssignmentsController < ApplicationController
   # GET /delegation_assignments
   # GET /delegation_assignments.json
-
+  before_filter :authenticate_user!
+  load_and_authorize_resource
 
   def index
-    @delegation_assignments = DelegationAssignment.all
+    @delegation_assignments = DelegationAssignment.order("country_id ASC")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -15,7 +16,6 @@ class DelegationAssignmentsController < ApplicationController
   # GET /delegation_assignments/1
   # GET /delegation_assignments/1.json
   def show
-    @delegation_assignment = DelegationAssignment.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,7 +26,6 @@ class DelegationAssignmentsController < ApplicationController
   # GET /delegation_assignments/new
   # GET /delegation_assignments/new.json
   def new
-    @delegation_assignment = DelegationAssignment.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,13 +35,11 @@ class DelegationAssignmentsController < ApplicationController
 
   # GET /delegation_assignments/1/edit
   def edit
-    @delegation_assignment = DelegationAssignment.find(params[:id])
   end
 
   # POST /delegation_assignments
   # POST /delegation_assignments.json
   def create
-    @delegation_assignment = DelegationAssignment.new(params[:delegation_assignment])
 
     respond_to do |format|
       if @delegation_assignment.save
@@ -59,7 +56,6 @@ class DelegationAssignmentsController < ApplicationController
   # PUT /delegation_assignments/1
   # PUT /delegation_assignments/1.json
   def update
-    @delegation_assignment = DelegationAssignment.find(params[:id])
        
     respond_to do |format|
       if @delegation_assignment.update_attributes(params[:delegation_assignment])
@@ -78,7 +74,6 @@ class DelegationAssignmentsController < ApplicationController
   # DELETE /delegation_assignments/1
   # DELETE /delegation_assignments/1.json
   def destroy
-    @delegation_assignment = DelegationAssignment.find(params[:id])
     @delegation_assignment.destroy
 
     respond_to do |format|
@@ -86,17 +81,5 @@ class DelegationAssignmentsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
-  # def create
-  #   @conference = Conference.find(params[:conference_id])
-  #   @delegation_assignment = @conference.delegation_assignments.create(params[:delegation_assignment])
-  #   redirect_to conference_path(@conference)
-  # end
 
-  # def destroy
-  #   @conference = Conference.find(params[:conference_id])
-  #   @delegation_assignment = @conference.delegation_assignments.find(params[:id])
-  #   @delegation_assignment.destroy
-  #   redirect_to conference_path(@conference)
-  # end
 end

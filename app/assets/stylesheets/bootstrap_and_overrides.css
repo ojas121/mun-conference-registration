@@ -22,3 +22,5 @@ h4, h5, h6 {
 .well {
 	background-color: white;
 }
+
+.checkboxlist { border:1px solid #ccc; padding-left: 10px; width:280px; height: 250px; overflow-y: scroll; }
