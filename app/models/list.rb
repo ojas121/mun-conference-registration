@@ -5,7 +5,7 @@ class List < ActiveRecord::Base
 
 	has_many :committees
 	
-	has_many :delegation_assignments
+	has_many :delegation_assignments, :dependent => :destroy
 	has_many :countries, :through => :delegation_assignments
 	has_many :schools, :through => :delegation_assignments
 
