@@ -13,6 +13,7 @@ class Ability
             can :manage, Country
             can :manage, Committee
             can :create, User
+            can :read, User
             can :read, DelegationAssignment
             can :update, DelegationAssignment
             can :manage, School
